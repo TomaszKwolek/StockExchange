@@ -29,6 +29,7 @@
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 	
+	<bean id="mapper" class="stockexchange.mapper.MapperFacadeFactoryBean"/>
 
 	<bean name="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
