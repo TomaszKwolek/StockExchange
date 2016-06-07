@@ -22,6 +22,8 @@
 	<context:component-scan base-package="stockexchange" />
 
 	<jpa:repositories base-package="stockexchange" />
+	
+	<util:properties id="simulationProperties" location="classpath:/config/simulationProperties.properties" />
 
 	<tx:annotation-driven transaction-manager="transactionManager" />
 

@@ -4,7 +4,6 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="dataSource" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<class>stockexchange.model.entity.SimulationsParameterEntity</class>
 		<class>stockexchange.model.entity.StockPriceEntity</class>
 		<class>stockexchange.model.entity.CashPortfolioEntity</class>
 		<class>stockexchange.model.entity.PlayerEntity</class>
