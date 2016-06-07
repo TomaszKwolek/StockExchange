@@ -1,4 +1,4 @@
-package stockexchange.model;
+package stockexchange.model.entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -30,6 +30,13 @@ public class StockPortfolioEntity implements Serializable {
 	public StockPortfolioEntity() {
 	}
 
+	public int getId() {
+		return this.id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getCompanyCode() {
 		return this.companyCode;

@@ -1,4 +1,4 @@
-package stockexchange.model;
+package stockexchange.model.entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -11,11 +11,12 @@ import java.util.Date;
  */
 @Entity
 @Table(name="simulations_parameters")
-@NamedQuery(name="SimulationsParameter.findAll", query="SELECT s FROM SimulationsParameter s")
-public class SimulationsParameter implements Serializable {
+@NamedQuery(name="SimulationsParameterEntity.findAll", query="SELECT s FROM SimulationsParameterEntity s")
+public class SimulationsParameterEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 
 	@Column(name="currency_price_factor")
@@ -35,7 +36,7 @@ public class SimulationsParameter implements Serializable {
 	@Column(name="stop_date")
 	private Date stopDate;
 
-	public SimulationsParameter() {
+	public SimulationsParameterEntity() {
 	}
 
 	public int getId() {

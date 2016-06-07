@@ -1,4 +1,4 @@
-package stockexchange.model;
+package stockexchange.model.entity;
 
 import java.io.Serializable;
 import javax.persistence.*;

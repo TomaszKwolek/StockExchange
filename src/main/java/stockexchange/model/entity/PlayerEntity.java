@@ -1,4 +1,4 @@
-package stockexchange.model;
+package stockexchange.model.entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -27,11 +27,11 @@ public class PlayerEntity implements Serializable {
 
 	private String pesel;
 
-	//bi-directional many-to-one association to CashPortfolioEntity
-	@OneToMany(mappedBy="player")
+
+	@OneToMany(mappedBy="player", cascade={CascadeType.ALL})
 	private List<CashPortfolioEntity> cashPortfolios;
 
-	//bi-directional many-to-one association to StockPortfolioEntity
+
 	@OneToMany(mappedBy="player")
 	private List<StockPortfolioEntity> stockPortfolios;
 

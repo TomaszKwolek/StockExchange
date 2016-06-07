@@ -1,6 +1,6 @@
 package stockexchange.dao;
 
-import stockexchange.model.SimulationsParameterEntity;
+import stockexchange.model.entity.SimulationsParameterEntity;
 
 public interface SimulationParametersDao {
 
