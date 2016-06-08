@@ -16,7 +16,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import stockexchange.mapper.DateParser;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "context.xml")
+@ContextConfiguration(locations = "datawriter-context.xml")
 public class DateParserTest {
 
 	@Autowired

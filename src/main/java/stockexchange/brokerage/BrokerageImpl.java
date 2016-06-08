@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import stockexchange.bank.PayementConfirmation;
 import stockexchange.dao.impl.BrokerageDaoImpl;
+import stockexchange.model.to.StockPriceTo;
 import stockexchange.player.BrokerageAuthentication;
 import stockexchange.stockexchange.StockExchange;
 import stockexchange.stockexchange.StockOfDay;
@@ -18,8 +19,8 @@ public class BrokerageImpl implements Brokerage {
 
 	@Autowired
 	private StockExchange stockExchange;
-	@Autowired
-	private BrokerageDaoImpl breokerageDao;
+	//@Autowired
+	//private BrokerageDaoImpl breokerageDao;
 	
 	@Override
 	public List<Offer> prepareListOfOffersToSell(Map<String, Integer> sharesToOfferInquiry) {
@@ -62,6 +63,16 @@ public class BrokerageImpl implements Brokerage {
 	public List<StockOfDay> getSelectedStockOfDays(Date fromDate, Date toDate, List<String> shares) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public Date getFirstDateOnSE() {
+		return stockExchange.getFirstDateOnSE();
+	}
+
+	@Override
+	public Date getLastDateOnSE() {
+		return stockExchange.getLastDateOnSE();
 	}
 
 

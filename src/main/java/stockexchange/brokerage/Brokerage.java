@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import stockexchange.bank.PayementConfirmation;
+import stockexchange.model.to.StockPriceTo;
 
 public interface Brokerage {
 
@@ -18,5 +19,7 @@ public interface Brokerage {
 	public void   confirmSell(BrokerageAuthentication authentication, List<Offer> ListOfOffers);
 	public  List<StockOfDay> getStockOfDays(Date fromDate, Date toDate);
 	public  List<StockOfDay> getSelectedStockOfDays(Date fromDate, Date toDate, List<String> shares);
+	public Date getFirstDateOnSE();
+	public Date  getLastDateOnSE();
 
 }

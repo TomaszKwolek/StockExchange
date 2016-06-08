@@ -12,7 +12,7 @@ import stockexchange.bank.BankImpl;
 import stockexchange.brokerage.BrokerageImpl;
 import stockexchange.brokerage.Offer;
 
-//@Service
+@Service
 public class Player {
 
 	//@Autowired

@@ -15,7 +15,7 @@ import ma.glasnost.orika.MapperFacade;
 import stockexchange.mapper.DateParser;
 import stockexchange.model.entity.StockPriceEntity;
 import stockexchange.model.to.StockPriceTo;
-import stockexchange.repository.StockPriceRepository;
+import stockexchange.repository.StockUpdaterRepository;
 
 @Component
 public class DataWriterImpl implements DataWriter {
@@ -23,7 +23,7 @@ public class DataWriterImpl implements DataWriter {
 	@Autowired
 	private DataCSVReader dataCsvReader;
 	@Autowired
-	private StockPriceRepository stockPriceRepository;
+	private StockUpdaterRepository stockUpdaterRepository;
 	@Autowired
 	private MapperFacade mapper;
 	@Autowired
@@ -42,20 +42,25 @@ public class DataWriterImpl implements DataWriter {
 		dataCsvReader.openFileReaders();
 		String[] nextLine;
 		int id = 0;
-		stockPriceRepository.deleteAll();
+		boolean dataLoaded = false;
+		stockUpdaterRepository.deleteAll();
 		while ((nextLine = dataCsvReader.readLine()) != null) {
 			try {
 				saveOneLineIntoDB(++id, nextLine);
+				dataLoaded = true;
 			} catch (ParseException e) {
 				log4j.log(Level.forName("NOTICE", 150), "Warning! Row "+id+"cannot be write into DB! Wrong date Format.");
 			}
 		}
 		dataCsvReader.closeReaders();
+		if(dataLoaded){
+			log4j.log(Level.forName("NOTICE", 150), "Input data loaded successful!");
+		}
 	}
 
 	@Override
 	public void clearStocksTable() {
-		stockPriceRepository.deleteAll();
+		stockUpdaterRepository.deleteAll();
 	}
 
 	private void saveOneLineIntoDB(int id, String[] line) throws ParseException {
@@ -65,7 +70,7 @@ public class DataWriterImpl implements DataWriter {
 		BigDecimal price = new BigDecimal(line[priceStringIndex]);
 		
 		StockPriceEntity spe = mapper.map(new StockPriceTo(id, companyCode, data, price), StockPriceEntity.class);
-		stockPriceRepository.save(spe);
+		stockUpdaterRepository.save(spe);
 		}
 		else{
 			log4j.log(Level.forName("NOTICE", 150), "Warning! Row "+id+" cannot be write into DB! Wrong input data.");

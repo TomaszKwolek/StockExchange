@@ -11,16 +11,16 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import stockexchange.repository.StockPriceRepository;
+import stockexchange.repository.StockUpdaterRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "context.xml")
+@ContextConfiguration(locations = "datawriter-context.xml")
 public class DataWriterTest {
 
 	@Autowired
 	private DataWriter dataWriter;
 	@Autowired
-	private StockPriceRepository stockPricerepository;;
+	private StockUpdaterRepository stockPricerepository;;
 
 	@Test
 	@Sql(scripts = "deleteAll.sql")
