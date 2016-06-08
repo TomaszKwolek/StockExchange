@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import stockexchange.stockexchange.StockOfDay;
 
 @Component
-public class Parser {
+public class CSVReader {
 
 	StockOfDay parseToStockOfDay(String[] line) {
 		return null;
