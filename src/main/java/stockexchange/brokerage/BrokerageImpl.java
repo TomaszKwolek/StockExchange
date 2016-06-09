@@ -55,8 +55,12 @@ public class BrokerageImpl implements Brokerage {
 
 	@Override
 	public List<StockOfDay> getStockOfDays(Date fromDate, Date toDate) {
-		// TODO Auto-generated method stub
-		return null;
+		return stockExchange.getStockOfDays(fromDate, toDate);
+	}
+	
+	@Override
+	public List<StockOfDay> getStockOfDaysForCompany(String companyCode, Date fromDate, Date toDate) {
+		return stockExchange.getStockOfDaysForCompany(companyCode, fromDate, toDate);
 	}
 
 	@Override
@@ -74,6 +78,5 @@ public class BrokerageImpl implements Brokerage {
 	public Date getLastDateOnSE() {
 		return stockExchange.getLastDateOnSE();
 	}
-
 
 }

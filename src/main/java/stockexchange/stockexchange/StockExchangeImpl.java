@@ -25,28 +25,7 @@ public class StockExchangeImpl implements StockExchange{
 		List<StockPriceTo> stockPriceTos = mapper.mapAsList(stockExchangeRepository.findStockOfDays(fromDate, toDate), StockPriceTo.class);
 		List<StockOfDay> stockOfDays = new ArrayList<>();
 		for (StockPriceTo stockPriceTo : stockPriceTos) {
-			Share newShare = new Share(stockPriceTo.getCompanyCode(), stockPriceTo.getPrice());
-			boolean shareAdded = false;
-			if(stockOfDays.size()==0){
-				List<Share> shares = new ArrayList();
-				shares.add(newShare);
-				StockOfDay sod = new StockOfDay(stockPriceTo.getDate(), shares);
-				stockOfDays.add(sod);
-				shareAdded = true;
-			}
-			for (int i=0; i < stockOfDays.size(); i++) {
-				if(stockPriceTo.getDate().equals(stockOfDays.get(i).getDate()) && !shareAdded){
-					stockOfDays.get(i).addShareToStock(newShare);
-					i=stockOfDays.size();
-					shareAdded = true;
-				}
-			}
-			if(!shareAdded){
-				List<Share> shares = new ArrayList();
-				shares.add(newShare);
-				StockOfDay sod = new StockOfDay(stockPriceTo.getDate(), shares);
-				stockOfDays.add(sod);
-			}
+			stockOfDays=addToStockOfDays(stockOfDays, stockPriceTo);
 		}
 		return stockOfDays;
 	}
@@ -55,28 +34,7 @@ public class StockExchangeImpl implements StockExchange{
 		List<StockPriceTo> stockPriceTos = mapper.mapAsList(stockExchangeRepository.findStockOfDaysForCompany(companyCode, fromDate, toDate), StockPriceTo.class);
 		List<StockOfDay> stockOfDays = new ArrayList<>();
 		for (StockPriceTo stockPriceTo : stockPriceTos) {
-			Share newShare = new Share(stockPriceTo.getCompanyCode(), stockPriceTo.getPrice());
-			boolean shareAdded = false;
-			if(stockOfDays.size()==0){
-				List<Share> shares = new ArrayList();
-				shares.add(newShare);
-				StockOfDay sod = new StockOfDay(stockPriceTo.getDate(), shares);
-				stockOfDays.add(sod);
-				shareAdded = true;
-			}
-			for (int i=0; i < stockOfDays.size(); i++) {
-				if(stockPriceTo.getDate().equals(stockOfDays.get(i).getDate()) && !shareAdded){
-					stockOfDays.get(i).addShareToStock(newShare);
-					i=stockOfDays.size();
-					shareAdded = true;
-				}
-			}
-			if(!shareAdded){
-				List<Share> shares = new ArrayList();
-				shares.add(newShare);
-				StockOfDay sod = new StockOfDay(stockPriceTo.getDate(), shares);
-				stockOfDays.add(sod);
-			}
+			stockOfDays=addToStockOfDays(stockOfDays, stockPriceTo);
 		}
 		return stockOfDays;
 	}
@@ -89,6 +47,33 @@ public class StockExchangeImpl implements StockExchange{
 	@Override
 	public Date getLastDateOnSE() {
 		return stockExchangeRepository.findLastDateOnSE().get(0).getDate();
+	}
+	
+	private List<StockOfDay> addToStockOfDays(List<StockOfDay> stockOfDays, StockPriceTo stockPriceTo) {
+		Share newShare = new Share(stockPriceTo.getCompanyCode(), stockPriceTo.getPrice());
+		boolean shareAdded = false;
+		if(stockOfDays.size()==0){
+			addStockForNewDay(stockOfDays, stockPriceTo, newShare);
+			shareAdded = true;
+		}
+		for (int i=0; i < stockOfDays.size(); i++) {
+			if(stockPriceTo.getDate().equals(stockOfDays.get(i).getDate()) && !shareAdded){
+				stockOfDays.get(i).addShareToStock(newShare);
+				i=stockOfDays.size();
+				shareAdded = true;
+			}
+		}
+		if(!shareAdded){
+			addStockForNewDay(stockOfDays, stockPriceTo, newShare);
+		}
+		return stockOfDays;
+	}
+
+	private void addStockForNewDay(List<StockOfDay> stockOfDays, StockPriceTo stockPriceTo, Share newShare) {
+		List<Share> shares = new ArrayList<Share>();
+		shares.add(newShare);
+		StockOfDay sod = new StockOfDay(stockPriceTo.getDate(), shares);
+		stockOfDays.add(sod);
 	}
 
 }

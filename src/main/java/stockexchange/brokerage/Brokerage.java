@@ -18,6 +18,7 @@ public interface Brokerage {
 	public void   confirmBuy(BrokerageAuthentication authentication, List<Offer> ListOfOffers, PayementConfirmation payConf);
 	public void   confirmSell(BrokerageAuthentication authentication, List<Offer> ListOfOffers);
 	public  List<StockOfDay> getStockOfDays(Date fromDate, Date toDate);
+	public  List<StockOfDay> getStockOfDaysForCompany(String companyCode, Date fromDate, Date toDate);
 	public  List<StockOfDay> getSelectedStockOfDays(Date fromDate, Date toDate, List<String> shares);
 	public Date getFirstDateOnSE();
 	public Date  getLastDateOnSE();
