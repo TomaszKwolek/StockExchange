@@ -6,9 +6,12 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import stockexchange.bank.Bank;
 import stockexchange.bank.BankImpl;
+import stockexchange.bank.CashBalance;
 import stockexchange.brokerage.BrokerageImpl;
 import stockexchange.brokerage.Offer;
 
@@ -16,14 +19,18 @@ import stockexchange.brokerage.Offer;
 public class Player {
 
 	//@Autowired
-	//public Strategy startegy;
+	//private Strategy startegy;
 	//@Autowired
-	//public BrokerageImpl brokerageimpl;
-	//@Autowired
-	//public BankImpl bank;
+	//private BrokerageImpl brokerageimpl;
+	@Autowired
+	private Bank bank;
+	
+	@Value(value = "#{simulationProperties['playerPesel']}")
+	private String playerPesel;
 
 	public void executeBuyStrategy(Date date) { 
-		// TODO Auto-generated method
+		List<CashBalance>  cashBalance = bank.getCashBalance(playerPesel, new BankAuthentication());
+		
 	 }
 	
 	public void executeSellStartegy(Date date) { 

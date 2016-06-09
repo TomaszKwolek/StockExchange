@@ -2,6 +2,7 @@ package stockexchange.simulation;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -37,6 +38,7 @@ public class SimulationGameImpl implements SimulationGame{
 		try {
 			dataWriter.saveAllIntoDB();
 			updateStockExchangeCalendar();
+			player.executeBuyStrategy(new Date());
 			
 		} catch (IOException e) {
 			log4j.log(Level.forName("NOTICE", 150), "IOException: Input data cannot be loaded!");

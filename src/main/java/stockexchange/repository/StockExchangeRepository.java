@@ -15,4 +15,10 @@ public interface StockExchangeRepository extends JpaRepository<StockPriceEntity,
 	 
 	 	@Query("FROM StockPriceEntity WHERE date=(SELECT MAX(date) FROM StockPriceEntity)")
 	 	List<StockPriceEntity> findLastDateOnSE();
+	 	
+		@Query("from StockPriceEntity spe where date>=?1 and date<=?2")
+	 	List<StockPriceEntity> findStockOfDays(Date fromDate, Date toDate);
+		
+		@Query("from StockPriceEntity spe where company_code=?1 and date>=?2 and date<=?3")
+	 	List<StockPriceEntity> findStockOfDaysForCompany(String companyCode, Date fromDate, Date toDate);
 }

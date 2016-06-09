@@ -32,3 +32,4 @@ INSERT INTO stock_prices (id, company_code, date, price) VALUES (4, 'PKO', '2016
 
 
 
+
