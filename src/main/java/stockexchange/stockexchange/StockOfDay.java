@@ -7,7 +7,7 @@ import java.util.List;
 public class StockOfDay {
 
 	private Date date;
-	private List stock = new ArrayList<Share>();
+	private List<Share> stock = new ArrayList<Share>();
 	
 	public StockOfDay() {
 		super();

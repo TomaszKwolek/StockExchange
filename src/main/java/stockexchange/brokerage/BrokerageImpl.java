@@ -1,5 +1,8 @@
 package stockexchange.brokerage;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -7,10 +10,14 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import stockexchange.bank.CashBalance;
 import stockexchange.bank.PayementConfirmation;
 import stockexchange.dao.impl.BrokerageDaoImpl;
+import stockexchange.exceptions.NoStocksDataForDayException;
+import stockexchange.helper.OfferHelper;
 import stockexchange.model.to.StockPriceTo;
 import stockexchange.player.BrokerageAuthentication;
+import stockexchange.stockexchange.Share;
 import stockexchange.stockexchange.StockExchange;
 import stockexchange.stockexchange.StockOfDay;
 
@@ -19,19 +26,24 @@ public class BrokerageImpl implements Brokerage {
 
 	@Autowired
 	private StockExchange stockExchange;
-	//@Autowired
-	//private BrokerageDaoImpl breokerageDao;
+	@Autowired
+	private OfferHelper offerHelper;
+	
+	private final static int FIRST_ITEM_INDEX=0;
 	
 	@Override
-	public List<Offer> prepareListOfOffersToSell(Map<String, Integer> sharesToOfferInquiry) {
-		// TODO Auto-generated method stub
+	public List<Offer> prepareListOfOffersToSell(List<Offer> offersInquiry, Date date) {
 		return null;
 	}
 
 	@Override
-	public List<Offer> prepareListOfOffersToBuy(Map<String, Integer> sharesToOfferInquiry) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Offer> prepareListOfOffersToBuy(List<Offer> offersInquiry, Date date) {
+		StockOfDay stockOfDay = getStockOfDays(date, date).get(FIRST_ITEM_INDEX);
+		List<Offer> offers = new ArrayList<>(); 
+		for(Offer singleOfferInquiry: offersInquiry){
+			offers.add(prepareSignleOfferToBuy(singleOfferInquiry, stockOfDay));
+		}
+		return offers;
 	}
 
 	@Override
@@ -54,12 +66,16 @@ public class BrokerageImpl implements Brokerage {
 	}
 
 	@Override
-	public List<StockOfDay> getStockOfDays(Date fromDate, Date toDate) {
-		return stockExchange.getStockOfDays(fromDate, toDate);
+	public List<StockOfDay> getStockOfDays(Date fromDate, Date toDate) throws  NoStocksDataForDayException{
+		List<StockOfDay> stockOfDays = stockExchange.getStockOfDays(fromDate, toDate);
+		if(stockOfDays.isEmpty()){
+			throw new NoStocksDataForDayException("No stock for selected days!");  
+		}
+		return stockOfDays;
 	}
 	
 	@Override
-	public List<StockOfDay> getStockOfDaysForCompany(String companyCode, Date fromDate, Date toDate) {
+	public List<StockOfDay> getStockOfDaysForCompany(String companyCode, Date fromDate, Date toDate)  throws  NoStocksDataForDayException {
 		return stockExchange.getStockOfDaysForCompany(companyCode, fromDate, toDate);
 	}
 
@@ -78,5 +94,16 @@ public class BrokerageImpl implements Brokerage {
 	public Date getLastDateOnSE() {
 		return stockExchange.getLastDateOnSE();
 	}
+
+	
+	private Offer prepareSignleOfferToBuy(Offer singlefferInquiry, StockOfDay stockOfDay){
+		String companyCode = singlefferInquiry.getCompanyCode();
+		Share shareFromStock = offerHelper.findShareInDay(companyCode, stockOfDay);
+		Integer maxSharesToBuy = offerHelper.calculateSharesAvailibity(singlefferInquiry.getAmount());
+		BigDecimal minUnitPrice = offerHelper.calculateMaxUnitPriceToBuy(shareFromStock).setScale(2, RoundingMode.HALF_DOWN);
+		return new Offer(companyCode, maxSharesToBuy, minUnitPrice);
+	}
+	
+
 
 }

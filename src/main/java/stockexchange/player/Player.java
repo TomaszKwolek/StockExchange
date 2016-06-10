@@ -1,12 +1,11 @@
 package stockexchange.player;
 
-import stockexchange.strategy.BasicStrategyImpl;
-import stockexchange.strategy.Strategy;
-
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
-
-import javax.annotation.Resource;
+import java.util.Map;
 
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -17,20 +16,18 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import stockexchange.bank.Bank;
-import stockexchange.bank.BankImpl;
 import stockexchange.bank.CashBalance;
-import stockexchange.brokerage.BrokerageImpl;
+import stockexchange.brokerage.Brokerage;
 import stockexchange.brokerage.Offer;
-import stockexchange.datawriter.DataWriterImpl;
-import stockexchange.model.to.StockPriceTo;
+import stockexchange.strategy.Strategy;
 
 @Service
 public class Player {
 
 	@Autowired
-	BeanFactory beanFactory;
-	//@Autowired
-	//private BrokerageImpl brokerageimpl;
+	private BeanFactory beanFactory;
+	@Autowired
+	private Brokerage brokerage;
 	@Autowired
 	private Bank bank;
 	
@@ -44,22 +41,34 @@ public class Player {
 	public void executeBuyStrategy(Date date) { 
 		List<CashBalance>  cashBalances = bank.getCashBalance(playerPesel, new BankAuthentication());
 		printCashBalance(cashBalances);
-		beanFactory.getBean(strategy, Strategy.class).prepareRecommendationsToBuy(cashBalances, date);
-
-		
-		
+		List<Offer> recommendationsToBuy = beanFactory.getBean(strategy, Strategy.class).prepareRecommendationsToBuy(cashBalances, date, 4);	
+		printOffers("Recommendation ", recommendationsToBuy, date);
+		List<Offer> offersToBuy = brokerage.prepareListOfOffersToBuy(prepareOfferInquiry(recommendationsToBuy), date);
+		printOffers("Offer ", offersToBuy, date);
+		List<Offer> sharesToBuy = makeDecisonToBuy(recommendationsToBuy, offersToBuy);
+		printOffers("Will be purchased ", sharesToBuy, date);
 	 }
 	
 	public void executeSellStartegy(Date date) { 
 		// TODO Auto-generated method
 	 } 
 
-	private List<Offer> makeDecisonToBuy(List<Offer> listFromStrategy, List<Offer> offerFromBrokerage) {
-		return offerFromBrokerage; 
-		// TODO Auto-generated method
+	private List<Offer> makeDecisonToBuy(List<Offer> recommendations, List<Offer> offers) {
+		List<Offer> sharesToBuy = new ArrayList<>(); 
+		for(Offer recommendation: recommendations){
+			for(Offer offer: offers){
+				if(recommendation.getCompanyCode().equals(offer.getCompanyCode())){
+					int compareResult = recommendation.getPrice().compareTo(offer.getPrice());
+					if(compareResult >= 1){
+						sharesToBuy.add(offer);
+					}
+				}
+			}
+		}
+		return sharesToBuy; 
 	 }
 	
-	private List<Offer> makeDecisionToSell(List<Offer> listFromStrategy, List<Offer> offerFromBrokerage) { 
+	private List<Offer> makeDecisionToSell(List<Offer> recommendations, List<Offer> offers) { 
 		// TODO Auto-generated method
 		return null;
 	 }
@@ -72,4 +81,17 @@ public class Player {
 		log4j.log(Level.forName("NOTICE", 150), "Cash Balance at the beginning of the simulation: "+cashBalanceToPrint);
 	}
 
+	private void printOffers(String commentar, List<Offer> offer, Date date) {
+		for(int i=0; i<offer.size(); i++){
+			log4j.log(Level.forName("NOTICE", 150), date+" "+commentar+(i+1)+": "+ offer.get(i).getCompanyCode()+ " " +offer.get(i).getAmount() + " "+offer.get(i).getPrice());
+		}
+	}
+	
+	private List<Offer> prepareOfferInquiry(List<Offer> recommendations){
+		List<Offer> offerInquiry = new ArrayList<>();
+		for(Offer recommendation: recommendations){
+			offerInquiry.add(new Offer(recommendation.getCompanyCode(), recommendation.getAmount(), new BigDecimal(0)));
+		}
+		return offerInquiry;
+	}
 }

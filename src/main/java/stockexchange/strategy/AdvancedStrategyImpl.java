@@ -18,12 +18,12 @@ public class AdvancedStrategyImpl implements Strategy {
 	private BrokerageImpl brokerage;
 	
 	@Override
-	public List<Offer> prepareRecommendationsToBuy(List<CashBalance> cashBalance, Date date) {
+	public List<Offer> prepareRecommendationsToBuy(List<CashBalance> cashBalance, Date date, int numberOfRecom) {
 		return null;
 	}
 
 	@Override
-	public List<Offer> prepareRecommendationsToSell(List<ShareBalance> stocksBalance, Date date) {
+	public List<Offer> prepareRecommendationsToSell(List<ShareBalance> stocksBalance, Date date, int numberOfRecom) {
 		return null;
 	}
 

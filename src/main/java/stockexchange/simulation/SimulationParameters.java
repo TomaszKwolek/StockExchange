@@ -28,7 +28,7 @@ public class SimulationParameters {
 		return startDate;
 	}
 	
-	public String getStoptDate() {
+	public String getStopDate() {
 		return stopDate;
 	}
 	

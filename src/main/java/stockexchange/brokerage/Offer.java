@@ -7,6 +7,21 @@ public class Offer {
 	private String companyCode;
 	private Integer amount;
 	private BigDecimal price;
+	
+
+	public Offer(String companyCode) {
+		super();
+		this.companyCode = companyCode;
+	}
+	
+
+	public Offer(String companyCode, Integer amount, BigDecimal price) {
+		super();
+		this.companyCode = companyCode;
+		this.amount = amount;
+		this.price = price;
+	}
+
 
 	public String getCompanyCode() {
 		return companyCode;

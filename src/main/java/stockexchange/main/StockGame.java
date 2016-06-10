@@ -14,9 +14,5 @@ public class StockGame {
 		ApplicationContext appContext = new ClassPathXmlApplicationContext("spring/context.xml");
 	    SimulationGame simulationGame = (SimulationGame) appContext.getBean(SimulationGame.class);
 	    simulationGame.executeSimulation();
-	    
-	       
 	}
-
-
 }
