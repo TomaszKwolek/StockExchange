@@ -41,37 +41,42 @@ public class SimulationGameImpl implements SimulationGame{
 		try {
 			Date startDate = dateParser.stringToDate(simParam.getStartDate());
 			Date stopDate =  dateParser.stringToDate(simParam.getStopDate());
+			Date currentDate = startDate;
+			int stopDateCompareResult = -1;
+			
 			dataWriter.saveAllIntoDB();
 			updateStockExchangeCalendar();
 			validateDateParameters();
-			Date currentDate = startDate;
-			int stopDateCompareResult = -1;
 			while(stopDateCompareResult < 0){
-				System.out.println("***************Data : "+currentDate);
-				try{
-				player.executeBuyStrategy(currentDate);
-				} catch (NoStocksDataForDayException e){
-					log4j.log(Level.forName("NOTICE", 150), "No stock for date: "+currentDate+" !");
-				}
+				executeSimulationForSingleDay(currentDate);
 				stopDateCompareResult = currentDate.compareTo(stopDate);
-				System.out.println("............"+currentDate+"  "+calendar.getNextWorkingDay(currentDate)+"  "+stopDateCompareResult);
 				currentDate = calendar.getNextWorkingDay(currentDate);
 			}	
 		} catch (IOException e) {
 			log4j.log(Level.forName("NOTICE", 150), "IOException: Input data cannot be loaded!");
 		} catch (ParseException e) {
-			log4j.log(Level.forName("NOTICE", 150), "Date parameter format not correct!");
+			log4j.log(Level.forName("NOTICE", 150), "Date parameter format is not correct!");
 		} catch (WrongDateParameterException e) {
 			log4j.log(Level.forName("NOTICE", 150), "Date parameter is not correct!");
 		}
 
 	}
 
+	private void executeSimulationForSingleDay(Date currentDate) {
+		try{
+		player.executeBuyStrategy(currentDate);
+		//player.executeSellStartegy(currentDate);
+		log4j.log(Level.forName("NOTICE", 150), "------------------------------------------------------");
+		} catch (NoStocksDataForDayException e){
+			log4j.log(Level.forName("NOTICE", 150), "No stock for date: "+currentDate+" !");
+		}
+	}
+
 	private void validateDateParameters() throws ParseException, WrongDateParameterException {
 		Date startDate = dateParser.stringToDate(simParam.getStartDate());
 		Date stopDate =  dateParser.stringToDate(simParam.getStopDate());
 		if(!areDateParametersCorrect(startDate, stopDate)){
-			 throw new WrongDateParameterException("Date parameter is not correct!");
+			 throw new WrongDateParameterException("Date parameter are not correct!");
 		}
 	}
 	

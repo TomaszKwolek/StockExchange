@@ -1,6 +1,5 @@
 package stockexchange.brokerage;
 
-import java.math.BigDecimal;
 
 public class ShareBalance {
 
@@ -11,7 +10,7 @@ public class ShareBalance {
 			super();
 		}
 
-		public ShareBalance(String companyCode, Integer amount, BigDecimal price) {
+		public ShareBalance(String companyCode, Integer amount) {
 			super();
 			this.companyCode = companyCode;
 			this.amount = amount;

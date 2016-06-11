@@ -2,6 +2,8 @@ package stockexchange.model.to;
 
 import java.math.BigDecimal;
 
+import stockexchange.model.entity.PlayerEntity;
+
 
 
 public class CashPortfolioTo {
@@ -9,6 +11,7 @@ public class CashPortfolioTo {
 	private int id;
 	private BigDecimal amount;
 	private String currencyCode;
+	private PlayerTo player;
 
 	public CashPortfolioTo() {
 	}
@@ -43,5 +46,14 @@ public class CashPortfolioTo {
 	public void setCurrencyCode(String currencyCode) {
 		this.currencyCode = currencyCode;
 	}
+
+	public PlayerTo getPlayer() {
+		return player;
+	}
+
+	public void setPlayer(PlayerTo player) {
+		this.player = player;
+	}
+	
 
 }

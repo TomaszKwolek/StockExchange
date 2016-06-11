@@ -8,9 +8,9 @@ import stockexchange.player.BankAuthentication;
 public interface Bank {
 
 	List<CashBalance> getCashBalance(String playerPesel, BankAuthentication authentication);
-	PayementConfirmation withdrawCash(BankAuthentication authentication, BigDecimal amount);
-	void topUpAccount(BankAuthentication authentication, CashBalance cash);
-	void changeCurrency(String currencyPairCode, BigDecimal amount);
+	ConfirmationFromBank withdrawCash(String playerPesel, BankAuthentication authentication, BigDecimal amount);
+	void topUpAccount(String playerPesel, BankAuthentication authentication, CashBalance cash);
+	void changeCurrency(String playerPesel, BankAuthentication authentication, String currencyPairCode, BigDecimal amount);
 	
 		
 }

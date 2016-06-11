@@ -4,7 +4,7 @@ public class StockPortfolioTo {
 
 	private int id;
 	private String companyCode;
-	private int volume;
+	private int amount;
 	
 	public StockPortfolioTo() {
 		super();
@@ -14,7 +14,7 @@ public class StockPortfolioTo {
 		super();
 		this.id = id;
 		this.companyCode = companyCode;
-		this.volume = volume;
+		this.amount = volume;
 	}
 
 	public int getId() {
@@ -33,13 +33,14 @@ public class StockPortfolioTo {
 		this.companyCode = companyCode;
 	}
 
-	public int getVolume() {
-		return volume;
+	public int getAmount() {
+		return amount;
 	}
 
-	public void setVolume(int volume) {
-		this.volume = volume;
+	public void setAmount(int amount) {
+		this.amount = amount;
 	}
+
 	
 
 }

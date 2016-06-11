@@ -10,13 +10,17 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ma.glasnost.orika.MapperFacade;
 import stockexchange.bank.CashBalance;
-import stockexchange.bank.PayementConfirmation;
+import stockexchange.bank.ConfirmationFromBank;
 import stockexchange.dao.impl.BrokerageDaoImpl;
 import stockexchange.exceptions.NoStocksDataForDayException;
 import stockexchange.helper.OfferHelper;
+import stockexchange.model.to.CashPortfolioTo;
+import stockexchange.model.to.StockPortfolioTo;
 import stockexchange.model.to.StockPriceTo;
 import stockexchange.player.BrokerageAuthentication;
+import stockexchange.repository.BrokerageRepository;
 import stockexchange.stockexchange.Share;
 import stockexchange.stockexchange.StockExchange;
 import stockexchange.stockexchange.StockOfDay;
@@ -27,7 +31,11 @@ public class BrokerageImpl implements Brokerage {
 	@Autowired
 	private StockExchange stockExchange;
 	@Autowired
+	private BrokerageRepository brokerageRepository;
+	@Autowired
 	private OfferHelper offerHelper;
+	@Autowired
+	private MapperFacade mapper;
 	
 	private final static int FIRST_ITEM_INDEX=0;
 	
@@ -47,14 +55,12 @@ public class BrokerageImpl implements Brokerage {
 	}
 
 	@Override
-	public List<ShareBalance> getStockBalnce(BrokerageAuthentication authentication) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<ShareBalance> getSharesBalance(String playerPesel, BrokerageAuthentication authentication) {
+		return convertToShareBalance(mapper.mapAsList(brokerageRepository.findStockPortfolio(playerPesel), StockPortfolioTo.class));
 	}
 
 	@Override
-	public void confirmBuy(BrokerageAuthentication authentication, List<Offer> ListOfOffers,
-			PayementConfirmation payConf) {
+	public void confirmBuy(BrokerageAuthentication authentication, List<Offer> ListOfOffers, ConfirmationFromBank payConf) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -104,6 +110,12 @@ public class BrokerageImpl implements Brokerage {
 		return new Offer(companyCode, maxSharesToBuy, minUnitPrice);
 	}
 	
-
+	private List<ShareBalance> convertToShareBalance(List<StockPortfolioTo> stockPortfolios){
+		List<ShareBalance> shareBalance  = new ArrayList<>();
+		for (StockPortfolioTo stockPortfolio : stockPortfolios) {
+			shareBalance.add(new ShareBalance(stockPortfolio.getCompanyCode(), stockPortfolio.getAmount()));
+		}
+		return shareBalance;
+	}
 
 }

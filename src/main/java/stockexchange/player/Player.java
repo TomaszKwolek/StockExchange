@@ -1,6 +1,8 @@
 package stockexchange.player;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -17,8 +19,10 @@ import org.springframework.stereotype.Service;
 
 import stockexchange.bank.Bank;
 import stockexchange.bank.CashBalance;
+import stockexchange.bank.ConfirmationFromBank;
 import stockexchange.brokerage.Brokerage;
 import stockexchange.brokerage.Offer;
+import stockexchange.brokerage.ShareBalance;
 import stockexchange.strategy.Strategy;
 
 @Service
@@ -35,18 +39,30 @@ public class Player {
 	private String playerPesel;
 	@Value(value = "#{simulationProperties['strategy']}")
 	private String strategy;
+	private final BigDecimal commisionFactor = new BigDecimal(0.005); 
+	private final BigDecimal minCommision = new BigDecimal(5); 
 	
 	private static final Logger log4j = LogManager.getLogger(Player.class.getName());
 
 	public void executeBuyStrategy(Date date) { 
-		List<CashBalance>  cashBalances = bank.getCashBalance(playerPesel, new BankAuthentication());
-		printCashBalance(cashBalances);
-		List<Offer> recommendationsToBuy = beanFactory.getBean(strategy, Strategy.class).prepareRecommendationsToBuy(cashBalances, date, 4);	
-		printOffers("Recommendation ", recommendationsToBuy, date);
+		List<CashBalance>  cashBalance = bank.getCashBalance(playerPesel, new BankAuthentication());
+		List<ShareBalance>  shareBalance = brokerage.getSharesBalance(playerPesel, new BrokerageAuthentication());
+		List<Offer> recommendationsToBuy = beanFactory.getBean(strategy, Strategy.class).prepareRecommendationsToBuy(cashBalance, date);	
 		List<Offer> offersToBuy = brokerage.prepareListOfOffersToBuy(prepareOfferInquiry(recommendationsToBuy), date);
-		printOffers("Offer ", offersToBuy, date);
 		List<Offer> sharesToBuy = makeDecisonToBuy(recommendationsToBuy, offersToBuy);
-		printOffers("Will be purchased ", sharesToBuy, date);
+		PlayerLogPrinter.printCashBalance(cashBalance, date);
+		PlayerLogPrinter.printShareBalance(shareBalance, date);
+		PlayerLogPrinter.printOffers("Recommendation to buy ", recommendationsToBuy, date);
+		PlayerLogPrinter.printOffers("Offer to buy ", offersToBuy, date);
+		PlayerLogPrinter.printOffers("Will be purchased ", sharesToBuy, date);
+		BigDecimal commision = calculateCommisionForBrokerage(sharesToBuy);
+		BigDecimal costOfShares = calculateCostOfShares(sharesToBuy);
+		BigDecimal toPay = costOfShares.add(commision);
+		PlayerLogPrinter.printCosts(costOfShares, commision, toPay, date);
+		ConfirmationFromBank bankConfirmation = bank.withdrawCash(playerPesel, new BankAuthentication(), toPay);
+		cashBalance = bank.getCashBalance(playerPesel, new BankAuthentication());
+		PlayerLogPrinter.printCashBalance(cashBalance, date);
+		PlayerLogPrinter.printShareBalance(shareBalance, date);
 	 }
 	
 	public void executeSellStartegy(Date date) { 
@@ -73,20 +89,6 @@ public class Player {
 		return null;
 	 }
 	
-	private void printCashBalance(List<CashBalance> cashBalances){
-		String cashBalanceToPrint = "";
-		for (CashBalance cashBalance : cashBalances) {
-			cashBalanceToPrint+= cashBalance.getCurrencyCode() + ": "+ cashBalance.getCashAmount()+" | ";
-		}
-		log4j.log(Level.forName("NOTICE", 150), "Cash Balance at the beginning of the simulation: "+cashBalanceToPrint);
-	}
-
-	private void printOffers(String commentar, List<Offer> offer, Date date) {
-		for(int i=0; i<offer.size(); i++){
-			log4j.log(Level.forName("NOTICE", 150), date+" "+commentar+(i+1)+": "+ offer.get(i).getCompanyCode()+ " " +offer.get(i).getAmount() + " "+offer.get(i).getPrice());
-		}
-	}
-	
 	private List<Offer> prepareOfferInquiry(List<Offer> recommendations){
 		List<Offer> offerInquiry = new ArrayList<>();
 		for(Offer recommendation: recommendations){
@@ -94,4 +96,31 @@ public class Player {
 		}
 		return offerInquiry;
 	}
+	
+	
+	private BigDecimal calculateCommisionForBrokerage(List<Offer> sharesToBuy){
+		BigDecimal commision = new BigDecimal(0);
+		for(Offer share: sharesToBuy){
+			BigDecimal transactionAmount = share.getPrice().multiply(new BigDecimal(share.getAmount()));
+			BigDecimal regularCommision = transactionAmount.multiply(commisionFactor);
+			if(regularCommision.compareTo(minCommision) == -1){
+				commision=commision.add(minCommision);
+			}
+			else{
+				commision=commision.add(regularCommision);
+			}
+		}
+		return  commision;
+	}
+	
+	private BigDecimal calculateCostOfShares(List<Offer> sharesToBuy){
+		BigDecimal cost = new BigDecimal(0);
+		for(Offer share: sharesToBuy){
+			BigDecimal transactionAmount = share.getPrice().multiply(new BigDecimal(share.getAmount()));
+			cost=cost.add(transactionAmount);
+		}
+		cost=cost.add(calculateCommisionForBrokerage(sharesToBuy));
+		return  cost;
+	}
+	
 }

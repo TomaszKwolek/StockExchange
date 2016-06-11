@@ -2,19 +2,19 @@ package stockexchange.bank;
 
 import java.math.BigDecimal;
 
-public class PayementConfirmation {
+public class ConfirmationFromBank {
 
 
 	private String difitalSign;
 	private String currencyCode;
 	private BigDecimal amount;
 	
-	public PayementConfirmation() {
+	public ConfirmationFromBank() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public PayementConfirmation(String difitalSign, String currencyCode, BigDecimal amount) {
+	public ConfirmationFromBank(String difitalSign, String currencyCode, BigDecimal amount) {
 		super();
 		this.difitalSign = difitalSign;
 		this.currencyCode = currencyCode;

@@ -1,268 +1,395 @@
-2016-06-10 15:40:26,186 main NOTICE datawriter.DataWriterImpl - Input data loaded successful!
-2016-06-10 15:40:26,242 main NOTICE player.Player - Cash Balance at the beginning of the simulation: PLN: 10000.00 | 
-2016-06-10 15:40:26,263 main NOTICE player.Player - Fri Feb 22 00:00:00 CET 2013 Recommendation 1: JSW 21 94.68
-2016-06-10 15:40:26,263 main NOTICE player.Player - Fri Feb 22 00:00:00 CET 2013 Recommendation 2: KGHM 11 179.82
-2016-06-10 15:40:26,263 main NOTICE player.Player - Fri Feb 22 00:00:00 CET 2013 Recommendation 3: PKOBP 57 34.68
-2016-06-10 15:40:26,263 main NOTICE player.Player - Fri Feb 22 00:00:00 CET 2013 Recommendation 4: PGNIG 340 5.87
-2016-06-10 15:40:26,268 main NOTICE player.Player - Fri Feb 22 00:00:00 CET 2013 Offer 1: JSW 20 94.81
-2016-06-10 15:40:26,268 main NOTICE player.Player - Fri Feb 22 00:00:00 CET 2013 Offer 2: KGHM 10 180.26
-2016-06-10 15:40:26,268 main NOTICE player.Player - Fri Feb 22 00:00:00 CET 2013 Offer 3: PKOBP 48 34.94
-2016-06-10 15:40:26,269 main NOTICE player.Player - Fri Feb 22 00:00:00 CET 2013 Offer 4: PGNIG 302 5.85
-2016-06-10 15:40:26,269 main NOTICE player.Player - Fri Feb 22 00:00:00 CET 2013 Will be purchased 1: PGNIG 302 5.85
-2016-06-10 15:40:26,279 main NOTICE player.Player - Cash Balance at the beginning of the simulation: PLN: 10000.00 | 
-2016-06-10 15:40:26,284 main NOTICE player.Player - Mon Feb 25 00:00:00 CET 2013 Recommendation 1: PKOBP 56 35.20
-2016-06-10 15:40:26,284 main NOTICE player.Player - Mon Feb 25 00:00:00 CET 2013 Recommendation 2: PGNIG 343 5.83
-2016-06-10 15:40:26,284 main NOTICE player.Player - Mon Feb 25 00:00:00 CET 2013 Recommendation 3: KGHM 10 184.18
-2016-06-10 15:40:26,284 main NOTICE player.Player - Mon Feb 25 00:00:00 CET 2013 Recommendation 4: TPSA 294 6.80
-2016-06-10 15:40:26,291 main NOTICE player.Player - Mon Feb 25 00:00:00 CET 2013 Offer 1: PKOBP 53 35.69
-2016-06-10 15:40:26,291 main NOTICE player.Player - Mon Feb 25 00:00:00 CET 2013 Offer 2: PGNIG 306 5.78
-2016-06-10 15:40:26,292 main NOTICE player.Player - Mon Feb 25 00:00:00 CET 2013 Offer 3: KGHM 9 184.82
-2016-06-10 15:40:26,292 main NOTICE player.Player - Mon Feb 25 00:00:00 CET 2013 Offer 4: TPSA 288 6.87
-2016-06-10 15:40:26,292 main NOTICE player.Player - Mon Feb 25 00:00:00 CET 2013 Will be purchased 1: PGNIG 306 5.78
-2016-06-10 15:40:26,298 main NOTICE player.Player - Cash Balance at the beginning of the simulation: PLN: 10000.00 | 
-2016-06-10 15:40:26,303 main NOTICE player.Player - Tue Feb 26 00:00:00 CET 2013 Recommendation 1: JSW 21 94.65
-2016-06-10 15:40:26,303 main NOTICE player.Player - Tue Feb 26 00:00:00 CET 2013 Recommendation 2: PGNIG 359 5.56
-2016-06-10 15:40:26,303 main NOTICE player.Player - Tue Feb 26 00:00:00 CET 2013 Recommendation 3: KGHM 10 182.74
-2016-06-10 15:40:26,303 main NOTICE player.Player - Tue Feb 26 00:00:00 CET 2013 Recommendation 4: PKOBP 57 35.08
-2016-06-10 15:40:26,310 main NOTICE player.Player - Tue Feb 26 00:00:00 CET 2013 Offer 1: JSW 17 93.84
-2016-06-10 15:40:26,310 main NOTICE player.Player - Tue Feb 26 00:00:00 CET 2013 Offer 2: PGNIG 301 5.65
-2016-06-10 15:40:26,310 main NOTICE player.Player - Tue Feb 26 00:00:00 CET 2013 Offer 3: KGHM 9 181.67
-2016-06-10 15:40:26,310 main NOTICE player.Player - Tue Feb 26 00:00:00 CET 2013 Offer 4: PKOBP 53 35.41
-2016-06-10 15:40:26,310 main NOTICE player.Player - Tue Feb 26 00:00:00 CET 2013 Will be purchased 1: JSW 17 93.84
-2016-06-10 15:40:26,310 main NOTICE player.Player - Tue Feb 26 00:00:00 CET 2013 Will be purchased 2: KGHM 9 181.67
-2016-06-10 15:40:26,321 main NOTICE player.Player - Cash Balance at the beginning of the simulation: PLN: 10000.00 | 
-2016-06-10 15:40:26,327 main NOTICE player.Player - Wed Feb 27 00:00:00 CET 2013 Recommendation 1: JSW 21 94.45
-2016-06-10 15:40:26,328 main NOTICE player.Player - Wed Feb 27 00:00:00 CET 2013 Recommendation 2: KGHM 10 187.40
-2016-06-10 15:40:26,328 main NOTICE player.Player - Wed Feb 27 00:00:00 CET 2013 Recommendation 3: PGNIG 353 5.65
-2016-06-10 15:40:26,328 main NOTICE player.Player - Wed Feb 27 00:00:00 CET 2013 Recommendation 4: PKOBP 56 35.65
-2016-06-10 15:40:26,336 main NOTICE player.Player - Wed Feb 27 00:00:00 CET 2013 Offer 1: JSW 17 94.60
-2016-06-10 15:40:26,336 main NOTICE player.Player - Wed Feb 27 00:00:00 CET 2013 Offer 2: KGHM 8 184.95
-2016-06-10 15:40:26,336 main NOTICE player.Player - Wed Feb 27 00:00:00 CET 2013 Offer 3: PGNIG 330 5.62
-2016-06-10 15:40:26,337 main NOTICE player.Player - Wed Feb 27 00:00:00 CET 2013 Offer 4: PKOBP 50 35.71
-2016-06-10 15:40:26,337 main NOTICE player.Player - Wed Feb 27 00:00:00 CET 2013 Will be purchased 1: KGHM 8 184.95
-2016-06-10 15:40:26,337 main NOTICE player.Player - Wed Feb 27 00:00:00 CET 2013 Will be purchased 2: PGNIG 330 5.62
-2016-06-10 15:40:26,346 main NOTICE player.Player - Cash Balance at the beginning of the simulation: PLN: 10000.00 | 
-2016-06-10 15:40:26,354 main NOTICE player.Player - Thu Feb 28 00:00:00 CET 2013 Recommendation 1: JSW 20 96.83
-2016-06-10 15:40:26,354 main NOTICE player.Player - Thu Feb 28 00:00:00 CET 2013 Recommendation 2: TPSA 293 6.82
-2016-06-10 15:40:26,354 main NOTICE player.Player - Thu Feb 28 00:00:00 CET 2013 Recommendation 3: PKOBP 56 35.67
-2016-06-10 15:40:26,354 main NOTICE player.Player - Thu Feb 28 00:00:00 CET 2013 Recommendation 4: KGHM 11 181.41
-2016-06-10 15:40:26,363 main NOTICE player.Player - Thu Feb 28 00:00:00 CET 2013 Offer 1: JSW 17 96.26
-2016-06-10 15:40:26,363 main NOTICE player.Player - Thu Feb 28 00:00:00 CET 2013 Offer 2: TPSA 258 6.81
-2016-06-10 15:40:26,363 main NOTICE player.Player - Thu Feb 28 00:00:00 CET 2013 Offer 3: PKOBP 54 35.69
-2016-06-10 15:40:26,363 main NOTICE player.Player - Thu Feb 28 00:00:00 CET 2013 Offer 4: KGHM 9 181.10
-2016-06-10 15:40:26,363 main NOTICE player.Player - Thu Feb 28 00:00:00 CET 2013 Will be purchased 1: JSW 17 96.26
-2016-06-10 15:40:26,363 main NOTICE player.Player - Thu Feb 28 00:00:00 CET 2013 Will be purchased 2: TPSA 258 6.81
-2016-06-10 15:40:26,363 main NOTICE player.Player - Thu Feb 28 00:00:00 CET 2013 Will be purchased 3: KGHM 9 181.10
-2016-06-10 15:40:26,370 main NOTICE player.Player - Cash Balance at the beginning of the simulation: PLN: 10000.00 | 
-2016-06-10 15:40:26,375 main NOTICE player.Player - Fri Mar 01 00:00:00 CET 2013 Recommendation 1: PGNIG 344 5.81
-2016-06-10 15:40:26,375 main NOTICE player.Player - Fri Mar 01 00:00:00 CET 2013 Recommendation 2: JSW 20 95.96
-2016-06-10 15:40:26,375 main NOTICE player.Player - Fri Mar 01 00:00:00 CET 2013 Recommendation 3: KGHM 11 175.91
-2016-06-10 15:40:26,375 main NOTICE player.Player - Fri Mar 01 00:00:00 CET 2013 Recommendation 4: PKOBP 56 35.40
-2016-06-10 15:40:26,380 main NOTICE player.Player - Fri Mar 01 00:00:00 CET 2013 Offer 1: PGNIG 301 5.73
-2016-06-10 15:40:26,381 main NOTICE player.Player - Fri Mar 01 00:00:00 CET 2013 Offer 2: JSW 17 96.22
-2016-06-10 15:40:26,381 main NOTICE player.Player - Fri Mar 01 00:00:00 CET 2013 Offer 3: KGHM 9 175.07
-2016-06-10 15:40:26,381 main NOTICE player.Player - Fri Mar 01 00:00:00 CET 2013 Offer 4: PKOBP 48 35.66
-2016-06-10 15:40:26,381 main NOTICE player.Player - Fri Mar 01 00:00:00 CET 2013 Will be purchased 1: PGNIG 301 5.73
-2016-06-10 15:40:26,381 main NOTICE player.Player - Fri Mar 01 00:00:00 CET 2013 Will be purchased 2: KGHM 9 175.07
-2016-06-10 15:40:26,389 main NOTICE player.Player - Cash Balance at the beginning of the simulation: PLN: 10000.00 | 
-2016-06-10 15:40:26,395 main NOTICE player.Player - Mon Mar 04 00:00:00 CET 2013 Recommendation 1: PKOBP 57 34.68
-2016-06-10 15:40:26,395 main NOTICE player.Player - Mon Mar 04 00:00:00 CET 2013 Recommendation 2: PGNIG 349 5.73
-2016-06-10 15:40:26,396 main NOTICE player.Player - Mon Mar 04 00:00:00 CET 2013 Recommendation 3: TPSA 271 7.38
-2016-06-10 15:40:26,396 main NOTICE player.Player - Mon Mar 04 00:00:00 CET 2013 Recommendation 4: JSW 20 98.07
-2016-06-10 15:40:26,400 main NOTICE player.Player - Mon Mar 04 00:00:00 CET 2013 Offer 1: PKOBP 55 34.56
-2016-06-10 15:40:26,400 main NOTICE player.Player - Mon Mar 04 00:00:00 CET 2013 Offer 2: PGNIG 341 5.76
-2016-06-10 15:40:26,400 main NOTICE player.Player - Mon Mar 04 00:00:00 CET 2013 Offer 3: TPSA 220 7.49
-2016-06-10 15:40:26,400 main NOTICE player.Player - Mon Mar 04 00:00:00 CET 2013 Offer 4: JSW 18 97.14
-2016-06-10 15:40:26,400 main NOTICE player.Player - Mon Mar 04 00:00:00 CET 2013 Will be purchased 1: PKOBP 55 34.56
-2016-06-10 15:40:26,401 main NOTICE player.Player - Mon Mar 04 00:00:00 CET 2013 Will be purchased 2: JSW 18 97.14
-2016-06-10 15:40:26,408 main NOTICE player.Player - Cash Balance at the beginning of the simulation: PLN: 10000.00 | 
-2016-06-10 15:40:26,412 main NOTICE player.Player - Tue Mar 05 00:00:00 CET 2013 Recommendation 1: KGHM 11 174.40
-2016-06-10 15:40:26,413 main NOTICE player.Player - Tue Mar 05 00:00:00 CET 2013 Recommendation 2: PKOBP 56 35.37
-2016-06-10 15:40:26,413 main NOTICE player.Player - Tue Mar 05 00:00:00 CET 2013 Recommendation 3: PGNIG 343 5.82
-2016-06-10 15:40:26,413 main NOTICE player.Player - Tue Mar 05 00:00:00 CET 2013 Recommendation 4: JSW 21 94.96
-2016-06-10 15:40:26,420 main NOTICE player.Player - Tue Mar 05 00:00:00 CET 2013 Offer 1: KGHM 10 175.05
-2016-06-10 15:40:26,420 main NOTICE player.Player - Tue Mar 05 00:00:00 CET 2013 Offer 2: PKOBP 48 35.34
-2016-06-10 15:40:26,420 main NOTICE player.Player - Tue Mar 05 00:00:00 CET 2013 Offer 3: PGNIG 302 5.78
-2016-06-10 15:40:26,420 main NOTICE player.Player - Tue Mar 05 00:00:00 CET 2013 Offer 4: JSW 17 95.54
-2016-06-10 15:40:26,421 main NOTICE player.Player - Tue Mar 05 00:00:00 CET 2013 Will be purchased 1: PKOBP 48 35.34
-2016-06-10 15:40:26,421 main NOTICE player.Player - Tue Mar 05 00:00:00 CET 2013 Will be purchased 2: PGNIG 302 5.78
-2016-06-10 15:40:26,430 main NOTICE player.Player - Cash Balance at the beginning of the simulation: PLN: 10000.00 | 
-2016-06-10 15:40:26,436 main NOTICE player.Player - Wed Mar 06 00:00:00 CET 2013 Recommendation 1: PKOBP 56 35.21
-2016-06-10 15:40:26,436 main NOTICE player.Player - Wed Mar 06 00:00:00 CET 2013 Recommendation 2: PGNIG 346 5.77
-2016-06-10 15:40:26,436 main NOTICE player.Player - Wed Mar 06 00:00:00 CET 2013 Recommendation 3: TPSA 271 7.36
-2016-06-10 15:40:26,436 main NOTICE player.Player - Wed Mar 06 00:00:00 CET 2013 Recommendation 4: KGHM 11 176.59
-2016-06-10 15:40:26,444 main NOTICE player.Player - Wed Mar 06 00:00:00 CET 2013 Offer 1: PKOBP 55 34.83
-2016-06-10 15:40:26,444 main NOTICE player.Player - Wed Mar 06 00:00:00 CET 2013 Offer 2: PGNIG 325 5.82
-2016-06-10 15:40:26,444 main NOTICE player.Player - Wed Mar 06 00:00:00 CET 2013 Offer 3: TPSA 220 7.41
-2016-06-10 15:40:26,444 main NOTICE player.Player - Wed Mar 06 00:00:00 CET 2013 Offer 4: KGHM 9 175.97
-2016-06-10 15:40:26,444 main NOTICE player.Player - Wed Mar 06 00:00:00 CET 2013 Will be purchased 1: PKOBP 55 34.83
-2016-06-10 15:40:26,444 main NOTICE player.Player - Wed Mar 06 00:00:00 CET 2013 Will be purchased 2: KGHM 9 175.97
-2016-06-10 15:40:26,452 main NOTICE player.Player - Cash Balance at the beginning of the simulation: PLN: 10000.00 | 
-2016-06-10 15:40:26,456 main NOTICE player.Player - Thu Mar 07 00:00:00 CET 2013 Recommendation 1: JSW 21 95.01
-2016-06-10 15:40:26,457 main NOTICE player.Player - Thu Mar 07 00:00:00 CET 2013 Recommendation 2: PGNIG 346 5.77
-2016-06-10 15:40:26,457 main NOTICE player.Player - Thu Mar 07 00:00:00 CET 2013 Recommendation 3: PKOBP 57 34.65
-2016-06-10 15:40:26,457 main NOTICE player.Player - Thu Mar 07 00:00:00 CET 2013 Recommendation 4: KGHM 11 175.59
-2016-06-10 15:40:26,463 main NOTICE player.Player - Thu Mar 07 00:00:00 CET 2013 Offer 1: JSW 17 95.35
-2016-06-10 15:40:26,463 main NOTICE player.Player - Thu Mar 07 00:00:00 CET 2013 Offer 2: PGNIG 340 5.83
-2016-06-10 15:40:26,463 main NOTICE player.Player - Thu Mar 07 00:00:00 CET 2013 Offer 3: PKOBP 56 34.94
-2016-06-10 15:40:26,463 main NOTICE player.Player - Thu Mar 07 00:00:00 CET 2013 Offer 4: KGHM 10 175.59
-2016-06-10 15:40:26,470 main NOTICE player.Player - Cash Balance at the beginning of the simulation: PLN: 10000.00 | 
-2016-06-10 15:40:26,475 main NOTICE player.Player - Fri Mar 08 00:00:00 CET 2013 Recommendation 1: KGHM 11 174.87
-2016-06-10 15:40:26,476 main NOTICE player.Player - Fri Mar 08 00:00:00 CET 2013 Recommendation 2: PKOBP 57 34.61
-2016-06-10 15:40:26,476 main NOTICE player.Player - Fri Mar 08 00:00:00 CET 2013 Recommendation 3: JSW 20 98.53
-2016-06-10 15:40:26,476 main NOTICE player.Player - Fri Mar 08 00:00:00 CET 2013 Recommendation 4: PGNIG 333 6.00
-2016-06-10 15:40:26,490 main NOTICE player.Player - Fri Mar 08 00:00:00 CET 2013 Offer 1: KGHM 9 175.29
-2016-06-10 15:40:26,490 main NOTICE player.Player - Fri Mar 08 00:00:00 CET 2013 Offer 2: PKOBP 50 34.38
-2016-06-10 15:40:26,490 main NOTICE player.Player - Fri Mar 08 00:00:00 CET 2013 Offer 3: JSW 17 97.93
-2016-06-10 15:40:26,490 main NOTICE player.Player - Fri Mar 08 00:00:00 CET 2013 Offer 4: PGNIG 323 6.05
-2016-06-10 15:40:26,490 main NOTICE player.Player - Fri Mar 08 00:00:00 CET 2013 Will be purchased 1: PKOBP 50 34.38
-2016-06-10 15:40:26,490 main NOTICE player.Player - Fri Mar 08 00:00:00 CET 2013 Will be purchased 2: JSW 17 97.93
-2016-06-10 15:40:26,507 main NOTICE player.Player - Cash Balance at the beginning of the simulation: PLN: 10000.00 | 
-2016-06-10 15:40:26,513 main NOTICE player.Player - Mon Mar 11 00:00:00 CET 2013 Recommendation 1: JSW 20 97.16
-2016-06-10 15:40:26,513 main NOTICE player.Player - Mon Mar 11 00:00:00 CET 2013 Recommendation 2: KGHM 11 172.30
-2016-06-10 15:40:26,513 main NOTICE player.Player - Mon Mar 11 00:00:00 CET 2013 Recommendation 3: PGNIG 338 5.90
-2016-06-10 15:40:26,513 main NOTICE player.Player - Mon Mar 11 00:00:00 CET 2013 Recommendation 4: TPSA 282 7.09
-2016-06-10 15:40:26,518 main NOTICE player.Player - Mon Mar 11 00:00:00 CET 2013 Offer 1: JSW 17 97.37
-2016-06-10 15:40:26,518 main NOTICE player.Player - Mon Mar 11 00:00:00 CET 2013 Offer 2: KGHM 10 172.77
-2016-06-10 15:40:26,518 main NOTICE player.Player - Mon Mar 11 00:00:00 CET 2013 Offer 3: PGNIG 284 5.89
-2016-06-10 15:40:26,518 main NOTICE player.Player - Mon Mar 11 00:00:00 CET 2013 Offer 4: TPSA 237 7.17
-2016-06-10 15:40:26,518 main NOTICE player.Player - Mon Mar 11 00:00:00 CET 2013 Will be purchased 1: PGNIG 284 5.89
-2016-06-10 15:40:26,529 main NOTICE player.Player - Cash Balance at the beginning of the simulation: PLN: 10000.00 | 
-2016-06-10 15:40:26,534 main NOTICE player.Player - Tue Mar 12 00:00:00 CET 2013 Recommendation 1: KGHM 11 174.79
-2016-06-10 15:40:26,534 main NOTICE player.Player - Tue Mar 12 00:00:00 CET 2013 Recommendation 2: PKOBP 57 35.03
-2016-06-10 15:40:26,534 main NOTICE player.Player - Tue Mar 12 00:00:00 CET 2013 Recommendation 3: JSW 21 95.28
-2016-06-10 15:40:26,534 main NOTICE player.Player - Tue Mar 12 00:00:00 CET 2013 Recommendation 4: TPSA 280 7.13
-2016-06-10 15:40:26,539 main NOTICE player.Player - Tue Mar 12 00:00:00 CET 2013 Offer 1: KGHM 9 175.43
-2016-06-10 15:40:26,539 main NOTICE player.Player - Tue Mar 12 00:00:00 CET 2013 Offer 2: PKOBP 54 34.90
-2016-06-10 15:40:26,539 main NOTICE player.Player - Tue Mar 12 00:00:00 CET 2013 Offer 3: JSW 20 96.29
-2016-06-10 15:40:26,539 main NOTICE player.Player - Tue Mar 12 00:00:00 CET 2013 Offer 4: TPSA 272 7.11
-2016-06-10 15:40:26,539 main NOTICE player.Player - Tue Mar 12 00:00:00 CET 2013 Will be purchased 1: PKOBP 54 34.90
-2016-06-10 15:40:26,539 main NOTICE player.Player - Tue Mar 12 00:00:00 CET 2013 Will be purchased 2: TPSA 272 7.11
-2016-06-10 15:40:26,549 main NOTICE player.Player - Cash Balance at the beginning of the simulation: PLN: 10000.00 | 
-2016-06-10 15:40:26,554 main NOTICE player.Player - Wed Mar 13 00:00:00 CET 2013 Recommendation 1: PGNIG 336 5.94
-2016-06-10 15:40:26,554 main NOTICE player.Player - Wed Mar 13 00:00:00 CET 2013 Recommendation 2: TPSA 290 6.88
-2016-06-10 15:40:26,554 main NOTICE player.Player - Wed Mar 13 00:00:00 CET 2013 Recommendation 3: PKOBP 56 35.37
-2016-06-10 15:40:26,554 main NOTICE player.Player - Wed Mar 13 00:00:00 CET 2013 Recommendation 4: KGHM 11 175.11
-2016-06-10 15:40:26,558 main NOTICE player.Player - Wed Mar 13 00:00:00 CET 2013 Offer 1: PGNIG 311 5.95
-2016-06-10 15:40:26,558 main NOTICE player.Player - Wed Mar 13 00:00:00 CET 2013 Offer 2: TPSA 248 6.96
-2016-06-10 15:40:26,558 main NOTICE player.Player - Wed Mar 13 00:00:00 CET 2013 Offer 3: PKOBP 53 35.49
-2016-06-10 15:40:26,558 main NOTICE player.Player - Wed Mar 13 00:00:00 CET 2013 Offer 4: KGHM 10 174.12
-2016-06-10 15:40:26,558 main NOTICE player.Player - Wed Mar 13 00:00:00 CET 2013 Will be purchased 1: KGHM 10 174.12
-2016-06-10 15:40:26,568 main NOTICE player.Player - Cash Balance at the beginning of the simulation: PLN: 10000.00 | 
-2016-06-10 15:40:26,573 main NOTICE player.Player - Thu Mar 14 00:00:00 CET 2013 Recommendation 1: KGHM 11 176.86
-2016-06-10 15:40:26,573 main NOTICE player.Player - Thu Mar 14 00:00:00 CET 2013 Recommendation 2: PGNIG 331 6.03
-2016-06-10 15:40:26,573 main NOTICE player.Player - Thu Mar 14 00:00:00 CET 2013 Recommendation 3: JSW 20 95.82
-2016-06-10 15:40:26,573 main NOTICE player.Player - Thu Mar 14 00:00:00 CET 2013 Recommendation 4: PKOBP 55 35.88
-2016-06-10 15:40:26,578 main NOTICE player.Player - Thu Mar 14 00:00:00 CET 2013 Offer 1: KGHM 9 175.48
-2016-06-10 15:40:26,578 main NOTICE player.Player - Thu Mar 14 00:00:00 CET 2013 Offer 2: PGNIG 276 6.04
-2016-06-10 15:40:26,578 main NOTICE player.Player - Thu Mar 14 00:00:00 CET 2013 Offer 3: JSW 19 97.35
-2016-06-10 15:40:26,578 main NOTICE player.Player - Thu Mar 14 00:00:00 CET 2013 Offer 4: PKOBP 53 36.01
-2016-06-10 15:40:26,578 main NOTICE player.Player - Thu Mar 14 00:00:00 CET 2013 Will be purchased 1: KGHM 9 175.48
-2016-06-10 15:40:26,587 main NOTICE player.Player - Cash Balance at the beginning of the simulation: PLN: 10000.00 | 
-2016-06-10 15:40:26,593 main NOTICE player.Player - Fri Mar 15 00:00:00 CET 2013 Recommendation 1: PGNIG 336 5.94
-2016-06-10 15:40:26,593 main NOTICE player.Player - Fri Mar 15 00:00:00 CET 2013 Recommendation 2: TPSA 292 6.84
-2016-06-10 15:40:26,593 main NOTICE player.Player - Fri Mar 15 00:00:00 CET 2013 Recommendation 3: PKOBP 56 35.32
-2016-06-10 15:40:26,593 main NOTICE player.Player - Fri Mar 15 00:00:00 CET 2013 Recommendation 4: JSW 20 98.26
-2016-06-10 15:40:26,598 main NOTICE player.Player - Fri Mar 15 00:00:00 CET 2013 Offer 1: PGNIG 298 5.94
-2016-06-10 15:40:26,598 main NOTICE player.Player - Fri Mar 15 00:00:00 CET 2013 Offer 2: TPSA 291 6.84
-2016-06-10 15:40:26,598 main NOTICE player.Player - Fri Mar 15 00:00:00 CET 2013 Offer 3: PKOBP 46 35.20
-2016-06-10 15:40:26,598 main NOTICE player.Player - Fri Mar 15 00:00:00 CET 2013 Offer 4: JSW 16 98.29
-2016-06-10 15:40:26,598 main NOTICE player.Player - Fri Mar 15 00:00:00 CET 2013 Will be purchased 1: PKOBP 46 35.20
-2016-06-10 15:40:26,602 main NOTICE player.Player - Cash Balance at the beginning of the simulation: PLN: 10000.00 | 
-2016-06-10 15:40:26,606 main NOTICE player.Player - Mon Mar 18 00:00:00 CET 2013 Recommendation 1: PGNIG 330 6.05
-2016-06-10 15:40:26,606 main NOTICE player.Player - Mon Mar 18 00:00:00 CET 2013 Recommendation 2: PKOBP 57 34.84
-2016-06-10 15:40:26,606 main NOTICE player.Player - Mon Mar 18 00:00:00 CET 2013 Recommendation 3: KGHM 11 167.31
-2016-06-10 15:40:26,606 main NOTICE player.Player - Mon Mar 18 00:00:00 CET 2013 Recommendation 4: TPSA 286 6.98
-2016-06-10 15:40:26,611 main NOTICE player.Player - Mon Mar 18 00:00:00 CET 2013 Offer 1: PGNIG 294 6.03
-2016-06-10 15:40:26,611 main NOTICE player.Player - Mon Mar 18 00:00:00 CET 2013 Offer 2: PKOBP 56 35.35
-2016-06-10 15:40:26,611 main NOTICE player.Player - Mon Mar 18 00:00:00 CET 2013 Offer 3: KGHM 9 166.05
-2016-06-10 15:40:26,611 main NOTICE player.Player - Mon Mar 18 00:00:00 CET 2013 Offer 4: TPSA 282 7.00
-2016-06-10 15:40:26,611 main NOTICE player.Player - Mon Mar 18 00:00:00 CET 2013 Will be purchased 1: PGNIG 294 6.03
-2016-06-10 15:40:26,611 main NOTICE player.Player - Mon Mar 18 00:00:00 CET 2013 Will be purchased 2: KGHM 9 166.05
-2016-06-10 15:40:26,614 main NOTICE player.Player - Cash Balance at the beginning of the simulation: PLN: 10000.00 | 
-2016-06-10 15:40:26,619 main NOTICE player.Player - Tue Mar 19 00:00:00 CET 2013 Recommendation 1: PGNIG 331 6.03
-2016-06-10 15:40:26,619 main NOTICE player.Player - Tue Mar 19 00:00:00 CET 2013 Recommendation 2: JSW 20 96.57
-2016-06-10 15:40:26,619 main NOTICE player.Player - Tue Mar 19 00:00:00 CET 2013 Recommendation 3: PKOBP 57 34.96
-2016-06-10 15:40:26,619 main NOTICE player.Player - Tue Mar 19 00:00:00 CET 2013 Recommendation 4: KGHM 12 160.61
-2016-06-10 15:40:26,623 main NOTICE player.Player - Tue Mar 19 00:00:00 CET 2013 Offer 1: PGNIG 285 6.03
-2016-06-10 15:40:26,623 main NOTICE player.Player - Tue Mar 19 00:00:00 CET 2013 Offer 2: JSW 18 97.18
-2016-06-10 15:40:26,623 main NOTICE player.Player - Tue Mar 19 00:00:00 CET 2013 Offer 3: PKOBP 54 35.08
-2016-06-10 15:40:26,623 main NOTICE player.Player - Tue Mar 19 00:00:00 CET 2013 Offer 4: KGHM 11 161.47
-2016-06-10 15:40:26,627 main NOTICE player.Player - Cash Balance at the beginning of the simulation: PLN: 10000.00 | 
-2016-06-10 15:40:26,631 main NOTICE player.Player - Wed Mar 20 00:00:00 CET 2013 Recommendation 1: PKOBP 57 34.60
-2016-06-10 15:40:26,631 main NOTICE player.Player - Wed Mar 20 00:00:00 CET 2013 Recommendation 2: TPSA 296 6.74
-2016-06-10 15:40:26,631 main NOTICE player.Player - Wed Mar 20 00:00:00 CET 2013 Recommendation 3: KGHM 12 163.02
-2016-06-10 15:40:26,631 main NOTICE player.Player - Wed Mar 20 00:00:00 CET 2013 Recommendation 4: JSW 20 95.41
-2016-06-10 15:40:26,636 main NOTICE player.Player - Wed Mar 20 00:00:00 CET 2013 Offer 1: PKOBP 46 34.88
-2016-06-10 15:40:26,637 main NOTICE player.Player - Wed Mar 20 00:00:00 CET 2013 Offer 2: TPSA 248 6.76
-2016-06-10 15:40:26,637 main NOTICE player.Player - Wed Mar 20 00:00:00 CET 2013 Offer 3: KGHM 11 163.39
-2016-06-10 15:40:26,637 main NOTICE player.Player - Wed Mar 20 00:00:00 CET 2013 Offer 4: JSW 16 96.75
-2016-06-10 15:40:26,640 main NOTICE player.Player - Cash Balance at the beginning of the simulation: PLN: 10000.00 | 
-2016-06-10 15:40:26,646 main NOTICE player.Player - Thu Mar 21 00:00:00 CET 2013 Recommendation 1: KGHM 12 160.82
-2016-06-10 15:40:26,646 main NOTICE player.Player - Thu Mar 21 00:00:00 CET 2013 Recommendation 2: PGNIG 337 5.93
-2016-06-10 15:40:26,646 main NOTICE player.Player - Thu Mar 21 00:00:00 CET 2013 Recommendation 3: JSW 21 94.84
-2016-06-10 15:40:26,647 main NOTICE player.Player - Thu Mar 21 00:00:00 CET 2013 Recommendation 4: TPSA 288 6.94
-2016-06-10 15:40:26,654 main NOTICE player.Player - Thu Mar 21 00:00:00 CET 2013 Offer 1: KGHM 10 159.82
-2016-06-10 15:40:26,654 main NOTICE player.Player - Thu Mar 21 00:00:00 CET 2013 Offer 2: PGNIG 273 5.87
-2016-06-10 15:40:26,654 main NOTICE player.Player - Thu Mar 21 00:00:00 CET 2013 Offer 3: JSW 20 94.59
-2016-06-10 15:40:26,654 main NOTICE player.Player - Thu Mar 21 00:00:00 CET 2013 Offer 4: TPSA 230 6.87
-2016-06-10 15:40:26,654 main NOTICE player.Player - Thu Mar 21 00:00:00 CET 2013 Will be purchased 1: KGHM 10 159.82
-2016-06-10 15:40:26,654 main NOTICE player.Player - Thu Mar 21 00:00:00 CET 2013 Will be purchased 2: PGNIG 273 5.87
-2016-06-10 15:40:26,654 main NOTICE player.Player - Thu Mar 21 00:00:00 CET 2013 Will be purchased 3: JSW 20 94.59
-2016-06-10 15:40:26,654 main NOTICE player.Player - Thu Mar 21 00:00:00 CET 2013 Will be purchased 4: TPSA 230 6.87
-2016-06-10 15:40:26,660 main NOTICE player.Player - Cash Balance at the beginning of the simulation: PLN: 10000.00 | 
-2016-06-10 15:40:26,665 main NOTICE player.Player - Fri Mar 22 00:00:00 CET 2013 Recommendation 1: PKOBP 58 34.10
-2016-06-10 15:40:26,665 main NOTICE player.Player - Fri Mar 22 00:00:00 CET 2013 Recommendation 2: JSW 21 93.43
-2016-06-10 15:40:26,665 main NOTICE player.Player - Fri Mar 22 00:00:00 CET 2013 Recommendation 3: KGHM 12 161.27
-2016-06-10 15:40:26,665 main NOTICE player.Player - Fri Mar 22 00:00:00 CET 2013 Recommendation 4: PGNIG 343 5.83
-2016-06-10 15:40:26,671 main NOTICE player.Player - Fri Mar 22 00:00:00 CET 2013 Offer 1: PKOBP 55 34.21
-2016-06-10 15:40:26,672 main NOTICE player.Player - Fri Mar 22 00:00:00 CET 2013 Offer 2: JSW 19 93.75
-2016-06-10 15:40:26,672 main NOTICE player.Player - Fri Mar 22 00:00:00 CET 2013 Offer 3: KGHM 9 158.65
-2016-06-10 15:40:26,672 main NOTICE player.Player - Fri Mar 22 00:00:00 CET 2013 Offer 4: PGNIG 326 5.82
-2016-06-10 15:40:26,672 main NOTICE player.Player - Fri Mar 22 00:00:00 CET 2013 Will be purchased 1: KGHM 9 158.65
-2016-06-10 15:40:26,672 main NOTICE player.Player - Fri Mar 22 00:00:00 CET 2013 Will be purchased 2: PGNIG 326 5.82
-2016-06-10 15:40:26,675 main NOTICE player.Player - Cash Balance at the beginning of the simulation: PLN: 10000.00 | 
-2016-06-10 15:40:26,680 main NOTICE player.Player - Mon Mar 25 00:00:00 CET 2013 Recommendation 1: TPSA 294 6.78
-2016-06-10 15:40:26,680 main NOTICE player.Player - Mon Mar 25 00:00:00 CET 2013 Recommendation 2: PGNIG 353 5.66
-2016-06-10 15:40:26,680 main NOTICE player.Player - Mon Mar 25 00:00:00 CET 2013 Recommendation 3: PKOBP 57 34.59
-2016-06-10 15:40:26,680 main NOTICE player.Player - Mon Mar 25 00:00:00 CET 2013 Recommendation 4: KGHM 12 154.64
-2016-06-10 15:40:26,684 main NOTICE player.Player - Mon Mar 25 00:00:00 CET 2013 Offer 1: TPSA 287 6.78
-2016-06-10 15:40:26,684 main NOTICE player.Player - Mon Mar 25 00:00:00 CET 2013 Offer 2: PGNIG 340 5.56
-2016-06-10 15:40:26,684 main NOTICE player.Player - Mon Mar 25 00:00:00 CET 2013 Offer 3: PKOBP 50 34.42
-2016-06-10 15:40:26,685 main NOTICE player.Player - Mon Mar 25 00:00:00 CET 2013 Offer 4: KGHM 10 154.25
-2016-06-10 15:40:26,685 main NOTICE player.Player - Mon Mar 25 00:00:00 CET 2013 Will be purchased 1: PGNIG 340 5.56
-2016-06-10 15:40:26,685 main NOTICE player.Player - Mon Mar 25 00:00:00 CET 2013 Will be purchased 2: PKOBP 50 34.42
-2016-06-10 15:40:26,685 main NOTICE player.Player - Mon Mar 25 00:00:00 CET 2013 Will be purchased 3: KGHM 10 154.25
-2016-06-10 15:40:26,688 main NOTICE player.Player - Cash Balance at the beginning of the simulation: PLN: 10000.00 | 
-2016-06-10 15:40:26,697 main NOTICE player.Player - Tue Mar 26 00:00:00 CET 2013 Recommendation 1: JSW 21 93.95
-2016-06-10 15:40:26,697 main NOTICE player.Player - Tue Mar 26 00:00:00 CET 2013 Recommendation 2: TPSA 309 6.46
-2016-06-10 15:40:26,697 main NOTICE player.Player - Tue Mar 26 00:00:00 CET 2013 Recommendation 3: PGNIG 357 5.59
-2016-06-10 15:40:26,697 main NOTICE player.Player - Tue Mar 26 00:00:00 CET 2013 Recommendation 4: KGHM 12 155.69
-2016-06-10 15:40:26,702 main NOTICE player.Player - Tue Mar 26 00:00:00 CET 2013 Offer 1: JSW 19 93.39
-2016-06-10 15:40:26,702 main NOTICE player.Player - Tue Mar 26 00:00:00 CET 2013 Offer 2: TPSA 286 6.54
-2016-06-10 15:40:26,702 main NOTICE player.Player - Tue Mar 26 00:00:00 CET 2013 Offer 3: PGNIG 294 5.62
-2016-06-10 15:40:26,702 main NOTICE player.Player - Tue Mar 26 00:00:00 CET 2013 Offer 4: KGHM 10 155.33
-2016-06-10 15:40:26,702 main NOTICE player.Player - Tue Mar 26 00:00:00 CET 2013 Will be purchased 1: JSW 19 93.39
-2016-06-10 15:40:26,702 main NOTICE player.Player - Tue Mar 26 00:00:00 CET 2013 Will be purchased 2: KGHM 10 155.33
-2016-06-10 15:40:26,706 main NOTICE player.Player - Cash Balance at the beginning of the simulation: PLN: 10000.00 | 
-2016-06-10 15:40:26,714 main NOTICE player.Player - Wed Mar 27 00:00:00 CET 2013 Recommendation 1: PGNIG 355 5.62
-2016-06-10 15:40:26,714 main NOTICE player.Player - Wed Mar 27 00:00:00 CET 2013 Recommendation 2: TPSA 309 6.46
-2016-06-10 15:40:26,714 main NOTICE player.Player - Wed Mar 27 00:00:00 CET 2013 Recommendation 3: JSW 21 95.18
-2016-06-10 15:40:26,714 main NOTICE player.Player - Wed Mar 27 00:00:00 CET 2013 Recommendation 4: PKOBP 56 35.20
-2016-06-10 15:40:26,721 main NOTICE player.Player - Wed Mar 27 00:00:00 CET 2013 Offer 1: PGNIG 337 5.65
-2016-06-10 15:40:26,722 main NOTICE player.Player - Wed Mar 27 00:00:00 CET 2013 Offer 2: TPSA 281 6.52
-2016-06-10 15:40:26,722 main NOTICE player.Player - Wed Mar 27 00:00:00 CET 2013 Offer 3: JSW 20 94.57
-2016-06-10 15:40:26,722 main NOTICE player.Player - Wed Mar 27 00:00:00 CET 2013 Offer 4: PKOBP 54 35.36
-2016-06-10 15:40:26,722 main NOTICE player.Player - Wed Mar 27 00:00:00 CET 2013 Will be purchased 1: JSW 20 94.57
-2016-06-10 15:40:26,728 main NOTICE player.Player - Cash Balance at the beginning of the simulation: PLN: 10000.00 | 
-2016-06-10 15:40:26,734 main NOTICE player.Player - Thu Mar 28 00:00:00 CET 2013 Recommendation 1: PKOBP 57 34.66
-2016-06-10 15:40:26,734 main NOTICE player.Player - Thu Mar 28 00:00:00 CET 2013 Recommendation 2: JSW 21 94.93
-2016-06-10 15:40:26,734 main NOTICE player.Player - Thu Mar 28 00:00:00 CET 2013 Recommendation 3: PGNIG 355 5.63
-2016-06-10 15:40:26,734 main NOTICE player.Player - Thu Mar 28 00:00:00 CET 2013 Recommendation 4: TPSA 294 6.78
-2016-06-10 15:40:26,739 main NOTICE player.Player - Thu Mar 28 00:00:00 CET 2013 Offer 1: PKOBP 56 34.84
-2016-06-10 15:40:26,739 main NOTICE player.Player - Thu Mar 28 00:00:00 CET 2013 Offer 2: JSW 18 93.83
-2016-06-10 15:40:26,739 main NOTICE player.Player - Thu Mar 28 00:00:00 CET 2013 Offer 3: PGNIG 288 5.57
-2016-06-10 15:40:26,739 main NOTICE player.Player - Thu Mar 28 00:00:00 CET 2013 Offer 4: TPSA 273 6.69
-2016-06-10 15:40:26,739 main NOTICE player.Player - Thu Mar 28 00:00:00 CET 2013 Will be purchased 1: JSW 18 93.83
-2016-06-10 15:40:26,739 main NOTICE player.Player - Thu Mar 28 00:00:00 CET 2013 Will be purchased 2: PGNIG 288 5.57
-2016-06-10 15:40:26,739 main NOTICE player.Player - Thu Mar 28 00:00:00 CET 2013 Will be purchased 3: TPSA 273 6.69
+Input data loaded successful!
+------------------------------------------------------
+2013-02-22 Cash balance : PLN: 10000.00 | 
+2013-02-22 Shares balance : 
+2013-02-22 Recommendation to buy 1: TPSA 177 6.78
+2013-02-22 Recommendation to buy 2: PGNIG 206 5.82
+2013-02-22 Recommendation to buy 3: JSW 12 94.64
+2013-02-22 Recommendation to buy 4: KGHM 6 180.12
+2013-02-22 Offer to buy 1: TPSA 143 6.84
+2013-02-22 Offer to buy 2: PGNIG 166 5.83
+2013-02-22 Offer to buy 3: JSW 10 94.57
+2013-02-22 Offer to buy 4: KGHM 5 180.23
+2013-02-22 Will be purchased 1: JSW 10 94.57
+2013-02-22 Cost of Share : 950.70 | Commision : 5 | To pay : 955.70
+2013-02-22 Cash balance : PLN: 9044.30 | 
+2013-02-22 Shares balance : 
+------------------------------------------------------
+2013-02-25 Cash balance : PLN: 9044.30 | 
+2013-02-25 Shares balance : 
+2013-02-25 Recommendation to buy 1: TPSA 158 6.85
+2013-02-25 Recommendation to buy 2: PKOBP 30 35.77
+2013-02-25 Recommendation to buy 3: KGHM 5 184.80
+2013-02-25 Recommendation to buy 4: JSW 11 96.05
+2013-02-25 Offer to buy 1: TPSA 141 6.81
+2013-02-25 Offer to buy 2: PKOBP 26 35.48
+2013-02-25 Offer to buy 3: KGHM 4 184.13
+2013-02-25 Offer to buy 4: JSW 10 95.90
+2013-02-25 Will be purchased 1: TPSA 141 6.81
+2013-02-25 Will be purchased 2: PKOBP 26 35.48
+2013-02-25 Will be purchased 3: KGHM 4 184.13
+2013-02-25 Will be purchased 4: JSW 10 95.90
+2013-02-25 Cost of Share : 3598.21 | Commision : 20 | To pay : 3618.21
+2013-02-25 Cash balance : PLN: 5426.09 | 
+2013-02-25 Shares balance : 
+------------------------------------------------------
+2013-02-26 Cash balance : PLN: 5426.09 | 
+2013-02-26 Shares balance : 
+2013-02-26 Recommendation to buy 1: KGHM 3 182.32
+2013-02-26 Recommendation to buy 2: PGNIG 116 5.58
+2013-02-26 Recommendation to buy 3: PKOBP 18 34.90
+2013-02-26 Recommendation to buy 4: JSW 6 93.99
+2013-02-26 Offer to buy 1: KGHM 2 181.14
+2013-02-26 Offer to buy 2: PGNIG 95 5.64
+2013-02-26 Offer to buy 3: PKOBP 17 34.93
+2013-02-26 Offer to buy 4: JSW 5 93.67
+2013-02-26 Will be purchased 1: KGHM 2 181.14
+2013-02-26 Will be purchased 2: JSW 5 93.67
+2013-02-26 Cost of Share : 840.63 | Commision : 10 | To pay : 850.63
+2013-02-26 Cash balance : PLN: 4575.46 | 
+2013-02-26 Shares balance : 
+------------------------------------------------------
+2013-02-27 Cash balance : PLN: 4575.46 | 
+2013-02-27 Shares balance : 
+2013-02-27 Recommendation to buy 1: PKOBP 15 35.60
+2013-02-27 Recommendation to buy 2: PGNIG 97 5.63
+2013-02-27 Recommendation to buy 3: KGHM 2 184.63
+2013-02-27 Recommendation to buy 4: TPSA 80 6.79
+2013-02-27 Offer to buy 1: PKOBP 12 35.76
+2013-02-27 Offer to buy 2: PGNIG 78 5.64
+2013-02-27 Offer to buy 3: KGHM 1 186.99
+2013-02-27 Offer to buy 4: TPSA 73 6.84
+2013-02-27 Cost of Share : 0 | Commision : 0 | To pay : 0
+2013-02-27 Cash balance : PLN: 4575.46 | 
+2013-02-27 Shares balance : 
+------------------------------------------------------
+2013-02-28 Cash balance : PLN: 4575.46 | 
+2013-02-28 Shares balance : 
+2013-02-28 Recommendation to buy 1: JSW 5 96.87
+2013-02-28 Recommendation to buy 2: KGHM 3 181.66
+2013-02-28 Recommendation to buy 3: PGNIG 94 5.82
+2013-02-28 Recommendation to buy 4: TPSA 79 6.93
+2013-02-28 Offer to buy 1: JSW 4 95.37
+2013-02-28 Offer to buy 2: KGHM 2 181.74
+2013-02-28 Offer to buy 3: PGNIG 91 5.80
+2013-02-28 Offer to buy 4: TPSA 71 6.83
+2013-02-28 Will be purchased 1: JSW 4 95.37
+2013-02-28 Will be purchased 2: PGNIG 91 5.80
+2013-02-28 Will be purchased 3: TPSA 71 6.83
+2013-02-28 Cost of Share : 1409.21 | Commision : 15 | To pay : 1424.21
+2013-02-28 Cash balance : PLN: 3151.25 | 
+2013-02-28 Shares balance : 
+------------------------------------------------------
+2013-03-01 Cash balance : PLN: 3151.25 | 
+2013-03-01 Shares balance : 
+2013-03-01 Recommendation to buy 1: PGNIG 65 5.74
+2013-03-01 Recommendation to buy 2: KGHM 2 176.88
+2013-03-01 Recommendation to buy 3: TPSA 51 7.31
+2013-03-01 Recommendation to buy 4: PKOBP 10 35.95
+2013-03-01 Offer to buy 1: PGNIG 58 5.82
+2013-03-01 Offer to buy 2: KGHM 1 176.22
+2013-03-01 Offer to buy 3: TPSA 49 7.40
+2013-03-01 Offer to buy 4: PKOBP 8 35.51
+2013-03-01 Will be purchased 1: KGHM 1 176.22
+2013-03-01 Will be purchased 2: PKOBP 8 35.51
+2013-03-01 Cost of Share : 470.30 | Commision : 10 | To pay : 480.30
+2013-03-01 Cash balance : PLN: 2670.95 | 
+2013-03-01 Shares balance : 
+------------------------------------------------------
+2013-03-04 Cash balance : PLN: 2670.95 | 
+2013-03-04 Shares balance : 
+2013-03-04 Recommendation to buy 1: TPSA 43 7.39
+2013-03-04 Recommendation to buy 2: PGNIG 55 5.73
+2013-03-04 Recommendation to buy 3: PKOBP 9 34.63
+2013-03-04 Recommendation to buy 4: KGHM 1 170.57
+2013-03-04 Offer to buy 1: TPSA 37 7.44
+2013-03-04 Offer to buy 2: PGNIG 54 5.72
+2013-03-04 Offer to buy 3: PKOBP 8 34.82
+2013-03-04 Offer to buy 4: KGHM 0 173.71
+2013-03-04 Will be purchased 1: PGNIG 54 5.72
+2013-03-04 Cost of Share : 313.88 | Commision : 5 | To pay : 318.88
+2013-03-04 Cash balance : PLN: 2352.07 | 
+2013-03-04 Shares balance : 
+------------------------------------------------------
+2013-03-05 Cash balance : PLN: 2352.07 | 
+2013-03-05 Shares balance : 
+2013-03-05 Recommendation to buy 1: PGNIG 48 5.80
+2013-03-05 Recommendation to buy 2: TPSA 38 7.38
+2013-03-05 Recommendation to buy 3: JSW 2 96.38
+2013-03-05 Recommendation to buy 4: PKOBP 7 35.36
+2013-03-05 Offer to buy 1: PGNIG 40 5.82
+2013-03-05 Offer to buy 2: TPSA 34 7.47
+2013-03-05 Offer to buy 3: JSW 1 95.85
+2013-03-05 Offer to buy 4: PKOBP 6 35.46
+2013-03-05 Will be purchased 1: JSW 1 95.85
+2013-03-05 Cost of Share : 100.85 | Commision : 5 | To pay : 105.85
+2013-03-05 Cash balance : PLN: 2246.22 | 
+2013-03-05 Shares balance : 
+------------------------------------------------------
+2013-03-06 Cash balance : PLN: 2246.22 | 
+2013-03-06 Shares balance : 
+2013-03-06 Recommendation to buy 1: PGNIG 46 5.74
+2013-03-06 Recommendation to buy 2: TPSA 36 7.40
+2013-03-06 Recommendation to buy 3: KGHM 1 177.24
+2013-03-06 Recommendation to buy 4: JSW 2 95.16
+2013-03-06 Offer to buy 1: PGNIG 41 5.82
+2013-03-06 Offer to buy 2: TPSA 34 7.47
+2013-03-06 Offer to buy 3: KGHM 0 175.31
+2013-03-06 Offer to buy 4: JSW 1 95.60
+2013-03-06 Will be purchased 1: KGHM 0 175.31
+2013-03-06 Cost of Share : 5.00 | Commision : 5 | To pay : 10.00
+2013-03-06 Cash balance : PLN: 2236.22 | 
+2013-03-06 Shares balance : 
+------------------------------------------------------
+2013-03-07 Cash balance : PLN: 2236.22 | 
+2013-03-07 Shares balance : 
+2013-03-07 Recommendation to buy 1: KGHM 1 175.52
+2013-03-07 Recommendation to buy 2: JSW 2 95.31
+2013-03-07 Recommendation to buy 3: TPSA 37 7.18
+2013-03-07 Recommendation to buy 4: PKOBP 7 34.94
+2013-03-07 Offer to buy 1: KGHM 0 173.58
+2013-03-07 Offer to buy 2: JSW 1 95.11
+2013-03-07 Offer to buy 3: TPSA 36 7.21
+2013-03-07 Offer to buy 4: PKOBP 6 35.06
+2013-03-07 Will be purchased 1: KGHM 0 173.58
+2013-03-07 Will be purchased 2: JSW 1 95.11
+2013-03-07 Cost of Share : 105.11 | Commision : 10 | To pay : 115.11
+2013-03-07 Cash balance : PLN: 2121.11 | 
+2013-03-07 Shares balance : 
+------------------------------------------------------
+2013-03-08 Cash balance : PLN: 2121.11 | 
+2013-03-08 Shares balance : 
+2013-03-08 Recommendation to buy 1: PKOBP 7 34.29
+2013-03-08 Recommendation to buy 2: KGHM 1 175.64
+2013-03-08 Recommendation to buy 3: TPSA 34 7.35
+2013-03-08 Recommendation to buy 4: PGNIG 42 5.95
+2013-03-08 Offer to buy 1: PKOBP 6 34.37
+2013-03-08 Offer to buy 2: KGHM 0 175.64
+2013-03-08 Offer to buy 3: TPSA 31 7.28
+2013-03-08 Offer to buy 4: PGNIG 38 5.94
+2013-03-08 Will be purchased 1: TPSA 31 7.28
+2013-03-08 Will be purchased 2: PGNIG 38 5.94
+2013-03-08 Cost of Share : 461.40 | Commision : 10 | To pay : 471.40
+2013-03-08 Cash balance : PLN: 1649.71 | 
+2013-03-08 Shares balance : 
+------------------------------------------------------
+2013-03-11 Cash balance : PLN: 1649.71 | 
+2013-03-11 Shares balance : 
+2013-03-11 Recommendation to buy 1: KGHM 1 173.39
+2013-03-11 Recommendation to buy 2: TPSA 27 7.20
+2013-03-11 Recommendation to buy 3: PKOBP 5 35.16
+2013-03-11 Recommendation to buy 4: PGNIG 33 5.92
+2013-03-11 Offer to buy 1: KGHM 0 172.95
+2013-03-11 Offer to buy 2: TPSA 25 7.14
+2013-03-11 Offer to buy 3: PKOBP 4 35.17
+2013-03-11 Offer to buy 4: PGNIG 31 5.89
+2013-03-11 Will be purchased 1: KGHM 0 172.95
+2013-03-11 Will be purchased 2: TPSA 25 7.14
+2013-03-11 Will be purchased 3: PGNIG 31 5.89
+2013-03-11 Cost of Share : 376.09 | Commision : 15 | To pay : 391.09
+2013-03-11 Cash balance : PLN: 1258.62 | 
+2013-03-11 Shares balance : 
+------------------------------------------------------
+2013-03-12 Cash balance : PLN: 1258.62 | 
+2013-03-12 Shares balance : 
+2013-03-12 Recommendation to buy 1: PKOBP 4 34.77
+2013-03-12 Recommendation to buy 2: TPSA 21 7.08
+2013-03-12 Recommendation to buy 3: PGNIG 25 5.92
+2013-03-12 Recommendation to buy 4: KGHM 0 177.72
+2013-03-12 Offer to buy 1: PKOBP 3 35.06
+2013-03-12 Offer to buy 2: TPSA 20 7.03
+2013-03-12 Offer to buy 3: PGNIG 21 5.85
+2013-03-12 Offer to buy 4: KGHM 0 177.72
+2013-03-12 Will be purchased 1: TPSA 20 7.03
+2013-03-12 Will be purchased 2: PGNIG 21 5.85
+2013-03-12 Cost of Share : 273.45 | Commision : 10 | To pay : 283.45
+2013-03-12 Cash balance : PLN: 975.17 | 
+2013-03-12 Shares balance : 
+------------------------------------------------------
+2013-03-13 Cash balance : PLN: 975.17 | 
+2013-03-13 Shares balance : 
+2013-03-13 Recommendation to buy 1: KGHM 0 175.80
+2013-03-13 Recommendation to buy 2: PGNIG 19 5.95
+2013-03-13 Recommendation to buy 3: PKOBP 3 35.30
+2013-03-13 Recommendation to buy 4: TPSA 16 6.94
+2013-03-13 Offer to buy 1: KGHM 0 176.04
+2013-03-13 Offer to buy 2: PGNIG 17 5.91
+2013-03-13 Offer to buy 3: PKOBP 2 35.42
+2013-03-13 Offer to buy 4: TPSA 14 6.92
+2013-03-13 Will be purchased 1: PGNIG 17 5.91
+2013-03-13 Will be purchased 2: TPSA 14 6.92
+2013-03-13 Cost of Share : 207.35 | Commision : 10 | To pay : 217.35
+2013-03-13 Cash balance : PLN: 757.82 | 
+2013-03-13 Shares balance : 
+------------------------------------------------------
+2013-03-14 Cash balance : PLN: 757.82 | 
+2013-03-14 Shares balance : 
+2013-03-14 Recommendation to buy 1: JSW 0 97.10
+2013-03-14 Recommendation to buy 2: PKOBP 2 35.59
+2013-03-14 Recommendation to buy 3: TPSA 13 6.98
+2013-03-14 Recommendation to buy 4: KGHM 0 174.14
+2013-03-14 Offer to buy 1: JSW 0 97.64
+2013-03-14 Offer to buy 2: PKOBP 1 35.58
+2013-03-14 Offer to buy 3: TPSA 12 6.98
+2013-03-14 Offer to buy 4: KGHM 0 176.04
+2013-03-14 Will be purchased 1: PKOBP 1 35.58
+2013-03-14 Cost of Share : 40.58 | Commision : 5 | To pay : 45.58
+2013-03-14 Cash balance : PLN: 712.24 | 
+2013-03-14 Shares balance : 
+------------------------------------------------------
+2013-03-15 Cash balance : PLN: 712.24 | 
+2013-03-15 Shares balance : 
+2013-03-15 Recommendation to buy 1: PGNIG 14 5.95
+2013-03-15 Recommendation to buy 2: KGHM 0 170.24
+2013-03-15 Recommendation to buy 3: PKOBP 2 35.16
+2013-03-15 Recommendation to buy 4: TPSA 12 6.90
+2013-03-15 Offer to buy 1: PGNIG 13 5.98
+2013-03-15 Offer to buy 2: KGHM 0 170.96
+2013-03-15 Offer to buy 3: PKOBP 1 35.21
+2013-03-15 Offer to buy 4: TPSA 10 6.87
+2013-03-15 Will be purchased 1: TPSA 10 6.87
+2013-03-15 Cost of Share : 73.70 | Commision : 5 | To pay : 78.70
+2013-03-15 Cash balance : PLN: 633.54 | 
+2013-03-15 Shares balance : 
+------------------------------------------------------
+2013-03-18 Cash balance : PLN: 633.54 | 
+2013-03-18 Shares balance : 
+2013-03-18 Recommendation to buy 1: JSW 0 98.04
+2013-03-18 Recommendation to buy 2: PGNIG 12 6.00
+2013-03-18 Recommendation to buy 3: PKOBP 2 35.43
+2013-03-18 Recommendation to buy 4: KGHM 0 168.55
+2013-03-18 Offer to buy 1: JSW 0 98.02
+2013-03-18 Offer to buy 2: PGNIG 10 6.01
+2013-03-18 Offer to buy 3: PKOBP 1 34.92
+2013-03-18 Offer to buy 4: KGHM 0 166.93
+2013-03-18 Will be purchased 1: JSW 0 98.02
+2013-03-18 Will be purchased 2: PKOBP 1 34.92
+2013-03-18 Will be purchased 3: KGHM 0 166.93
+2013-03-18 Cost of Share : 49.92 | Commision : 15 | To pay : 64.92
+2013-03-18 Cash balance : PLN: 568.62 | 
+2013-03-18 Shares balance : 
+------------------------------------------------------
+2013-03-19 Cash balance : PLN: 568.62 | 
+2013-03-19 Shares balance : 
+2013-03-19 Recommendation to buy 1: JSW 0 96.99
+2013-03-19 Recommendation to buy 2: KGHM 0 162.49
+2013-03-19 Recommendation to buy 3: TPSA 10 6.68
+2013-03-19 Recommendation to buy 4: PKOBP 1 34.68
+2013-03-19 Offer to buy 1: JSW 0 97.49
+2013-03-19 Offer to buy 2: KGHM 0 162.38
+2013-03-19 Offer to buy 3: TPSA 9 6.75
+2013-03-19 Offer to buy 4: PKOBP 0 34.96
+2013-03-19 Will be purchased 1: KGHM 0 162.38
+2013-03-19 Cost of Share : 5.00 | Commision : 5 | To pay : 10.00
+2013-03-19 Cash balance : PLN: 558.62 | 
+2013-03-19 Shares balance : 
+------------------------------------------------------
+2013-03-20 Cash balance : PLN: 558.62 | 
+2013-03-20 Shares balance : 
+2013-03-20 Recommendation to buy 1: TPSA 9 6.82
+2013-03-20 Recommendation to buy 2: PGNIG 11 5.97
+2013-03-20 Recommendation to buy 3: KGHM 0 164.83
+2013-03-20 Recommendation to buy 4: PKOBP 1 35.04
+2013-03-20 Offer to buy 1: TPSA 8 6.72
+2013-03-20 Offer to buy 2: PGNIG 9 5.89
+2013-03-20 Offer to buy 3: KGHM 0 164.06
+2013-03-20 Offer to buy 4: PKOBP 0 34.72
+2013-03-20 Will be purchased 1: TPSA 8 6.72
+2013-03-20 Will be purchased 2: PGNIG 9 5.89
+2013-03-20 Will be purchased 3: KGHM 0 164.06
+2013-03-20 Will be purchased 4: PKOBP 0 34.72
+2013-03-20 Cost of Share : 126.77 | Commision : 20 | To pay : 146.77
+2013-03-20 Cash balance : PLN: 411.85 | 
+2013-03-20 Shares balance : 
+------------------------------------------------------
+2013-03-21 Cash balance : PLN: 411.85 | 
+2013-03-21 Shares balance : 
+2013-03-21 Recommendation to buy 1: PGNIG 8 5.89
+2013-03-21 Recommendation to buy 2: PKOBP 1 34.41
+2013-03-21 Recommendation to buy 3: KGHM 0 160.35
+2013-03-21 Recommendation to buy 4: JSW 0 95.66
+2013-03-21 Offer to buy 1: PGNIG 6 5.91
+2013-03-21 Offer to buy 2: PKOBP 0 34.67
+2013-03-21 Offer to buy 3: KGHM 0 159.22
+2013-03-21 Offer to buy 4: JSW 0 94.54
+2013-03-21 Will be purchased 1: KGHM 0 159.22
+2013-03-21 Will be purchased 2: JSW 0 94.54
+2013-03-21 Cost of Share : 10.00 | Commision : 10 | To pay : 20.00
+2013-03-21 Cash balance : PLN: 391.85 | 
+2013-03-21 Shares balance : 
+------------------------------------------------------
+2013-03-22 Cash balance : PLN: 391.85 | 
+2013-03-22 Shares balance : 
+2013-03-22 Recommendation to buy 1: KGHM 0 159.59
+2013-03-22 Recommendation to buy 2: PGNIG 8 5.86
+2013-03-22 Recommendation to buy 3: PKOBP 1 33.82
+2013-03-22 Recommendation to buy 4: JSW 0 93.36
+2013-03-22 Offer to buy 1: KGHM 0 159.90
+2013-03-22 Offer to buy 2: PGNIG 7 5.85
+2013-03-22 Offer to buy 3: PKOBP 0 33.85
+2013-03-22 Offer to buy 4: JSW 0 94.78
+2013-03-22 Will be purchased 1: PGNIG 7 5.85
+2013-03-22 Cost of Share : 45.95 | Commision : 5 | To pay : 50.95
+2013-03-22 Cash balance : PLN: 340.90 | 
+2013-03-22 Shares balance : 
+------------------------------------------------------
+2013-03-25 Cash balance : PLN: 340.90 | 
+2013-03-25 Shares balance : 
+2013-03-25 Recommendation to buy 1: JSW 0 91.77
+2013-03-25 Recommendation to buy 2: TPSA 6 6.73
+2013-03-25 Recommendation to buy 3: KGHM 0 154.32
+2013-03-25 Recommendation to buy 4: PGNIG 7 5.67
+2013-03-25 Offer to buy 1: JSW 0 92.29
+2013-03-25 Offer to buy 2: TPSA 4 6.78
+2013-03-25 Offer to buy 3: KGHM 0 155.54
+2013-03-25 Offer to buy 4: PGNIG 6 5.61
+2013-03-25 Will be purchased 1: PGNIG 6 5.61
+2013-03-25 Cost of Share : 38.66 | Commision : 5 | To pay : 43.66
+2013-03-25 Cash balance : PLN: 297.24 | 
+2013-03-25 Shares balance : 
+------------------------------------------------------
+2013-03-26 Cash balance : PLN: 297.24 | 
+2013-03-26 Shares balance : 
+2013-03-26 Recommendation to buy 1: JSW 0 93.32
+2013-03-26 Recommendation to buy 2: PKOBP 1 34.67
+2013-03-26 Recommendation to buy 3: TPSA 5 6.46
+2013-03-26 Recommendation to buy 4: KGHM 0 153.84
+2013-03-26 Offer to buy 1: JSW 0 94.32
+2013-03-26 Offer to buy 2: PKOBP 0 34.71
+2013-03-26 Offer to buy 3: TPSA 4 6.53
+2013-03-26 Offer to buy 4: KGHM 0 155.82
+2013-03-26 Cost of Share : 0 | Commision : 0 | To pay : 0
+2013-03-26 Cash balance : PLN: 297.24 | 
+2013-03-26 Shares balance : 
+------------------------------------------------------
+2013-03-27 Cash balance : PLN: 297.24 | 
+2013-03-27 Shares balance : 
+2013-03-27 Recommendation to buy 1: PKOBP 1 34.99
+2013-03-27 Recommendation to buy 2: KGHM 0 158.64
+2013-03-27 Recommendation to buy 3: TPSA 5 6.52
+2013-03-27 Recommendation to buy 4: PGNIG 6 5.64
+2013-03-27 Offer to buy 1: PKOBP 0 34.91
+2013-03-27 Offer to buy 2: KGHM 0 158.49
+2013-03-27 Offer to buy 3: TPSA 4 6.48
+2013-03-27 Offer to buy 4: PGNIG 4 5.64
+2013-03-27 Will be purchased 1: PKOBP 0 34.91
+2013-03-27 Will be purchased 2: KGHM 0 158.49
+2013-03-27 Will be purchased 3: TPSA 4 6.48
+2013-03-27 Cost of Share : 40.92 | Commision : 15 | To pay : 55.92
+2013-03-27 Cash balance : PLN: 241.32 | 
+2013-03-27 Shares balance : 
+------------------------------------------------------
+2013-03-28 Cash balance : PLN: 241.32 | 
+2013-03-28 Shares balance : 
+2013-03-28 Recommendation to buy 1: PKOBP 0 34.72
+2013-03-28 Recommendation to buy 2: JSW 0 93.85
+2013-03-28 Recommendation to buy 3: PGNIG 5 5.54
+2013-03-28 Recommendation to buy 4: TPSA 4 6.68
+2013-03-28 Offer to buy 1: PKOBP 0 35.08
+2013-03-28 Offer to buy 2: JSW 0 94.75
+2013-03-28 Offer to buy 3: PGNIG 4 5.60
+2013-03-28 Offer to buy 4: TPSA 3 6.78
+2013-03-28 Cost of Share : 0 | Commision : 0 | To pay : 0
+2013-03-28 Cash balance : PLN: 241.32 | 
+2013-03-28 Shares balance : 
+------------------------------------------------------

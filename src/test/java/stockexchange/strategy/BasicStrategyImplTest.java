@@ -47,24 +47,9 @@ public class BasicStrategyImplTest {
 		List<CashBalance> cashBalances = new ArrayList<>();
 		cashBalances.add(cashBalance);
 		//when
-		List<Offer> recommendationsToBuy = beanFactory.getBean("basicStrategy", Strategy.class).prepareRecommendationsToBuy(cashBalances, date, 100);	
+		List<Offer> recommendationsToBuy = beanFactory.getBean("basicStrategy", Strategy.class).prepareRecommendationsToBuy(cashBalances, date);	
 		// then
-		assertEquals(recommendationsToBuy.size(), 6);
-	}
-	
-	@Test
-	@Sql(scripts = "import.sql")
-	public void testShoulReturnThreeRecommendations() throws ParseException {
-		// given
-		DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
-		Date date = dateFormat.parse("20130102");
-		CashBalance cashBalance = new CashBalance("PLN", new BigDecimal(10000.00));
-		List<CashBalance> cashBalances = new ArrayList<>();
-		cashBalances.add(cashBalance);
-		//when
-		List<Offer> recommendationsToBuy = beanFactory.getBean("basicStrategy", Strategy.class).prepareRecommendationsToBuy(cashBalances, date, 3);	
-		// then
-		assertEquals(recommendationsToBuy.size(), 3);
+		assertEquals(recommendationsToBuy.size(), 4);
 	}
 
 	

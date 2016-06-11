@@ -55,6 +55,8 @@ public class DataWriterImpl implements DataWriter {
 		dataCsvReader.closeReaders();
 		if(dataLoaded){
 			log4j.log(Level.forName("NOTICE", 150), "Input data loaded successful!");
+			log4j.log(Level.forName("NOTICE", 150), "------------------------------------------------------");
+
 		}
 	}
 

@@ -29,15 +29,16 @@ public class BasicStrategyImpl implements Strategy {
 	
 	private final int FIRST_ITEM_INDEX=0;
 	private final String currencyCode = "PLN";
-	private final BigDecimal MAX_PERCENT_OF_CASH_FOR_SINGLE_TRANSACTION=new BigDecimal(20);
 	private final BigDecimal HUNDRET_PERCENT=new BigDecimal(100);
+	private final int NUMBER_OF_RECOM = 4;
+	private final BigDecimal MAX_PERCENT_OF_CASH_FOR_SINGLE_TRANSACTION=new BigDecimal(50/NUMBER_OF_RECOM);
 	
 	@Override
-	public List<Offer> prepareRecommendationsToBuy(List<CashBalance> cashBalances, Date date, int numberOfRecom)  throws  NoStocksDataForDayException{
+	public List<Offer> prepareRecommendationsToBuy(List<CashBalance> cashBalances, Date date)  throws  NoStocksDataForDayException{
 		CashBalance cashBalance = findCashBalance(currencyCode, cashBalances); 
 		List<Offer> recommendationsToBuy = new ArrayList<>();
 		StockOfDay stockOfDay = brokerage.getStockOfDays(date, date).get(FIRST_ITEM_INDEX);
-		List<Share> randomlySelectedShares = randomSharesToBuy(stockOfDay, numberOfRecom);
+		List<Share> randomlySelectedShares = randomSharesToBuy(stockOfDay, NUMBER_OF_RECOM);
 		for(Share share: randomlySelectedShares){
 			recommendationsToBuy.add(prepareSignleRecommendationToBuy(share, cashBalance));
 		}
@@ -45,7 +46,7 @@ public class BasicStrategyImpl implements Strategy {
 	}
 
 	@Override
-	public List<Offer> prepareRecommendationsToSell(List<ShareBalance> stocksBalance, Date date, int numberOfRecom)  throws  NoStocksDataForDayException{
+	public List<Offer> prepareRecommendationsToSell(List<ShareBalance> stocksBalance, Date date)  throws  NoStocksDataForDayException{
 		List<Offer> recommendationsToSell = new ArrayList<>();
 		
 		return recommendationsToSell;
