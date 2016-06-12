@@ -41,7 +41,7 @@ public class Player {
 		BankAuthentication bankAuthentiction = new BankAuthentication(playerPesel, "", "", player_id);
 		BrokerageAuthentication brokerageAuthentiction = new BrokerageAuthentication(playerPesel, "", "", player_id);
 
-		checkParameter();
+		checkParameters();
 
 		List<CashBalance> cashBalances = bank.getCashBalances(bankAuthentiction, currencyCode);
 		List<ShareBalance> shareBalances = brokerage.getSharesBalances(brokerageAuthentiction);
@@ -134,7 +134,7 @@ public class Player {
 		return cost;
 	}
 
-	private void checkParameter() {
+	private void checkParameters() {
 		if (!parameterValidator.isPesel(param.getPlayerPesel()) || !parameterValidator.isIntegerNumber(param.getPlayerId())
 				|| !parameterValidator.isStringCorrect(param.getStrategy()) || !parameterValidator.isStringCorrect(param.getCurrencyCode())
 				|| !parameterValidator.isNumberWithComma(param.getCommissionFactor())

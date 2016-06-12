@@ -60,7 +60,6 @@ public class OfferHelper {
 		return availibityFactor.multiply(new BigDecimal(preferedAmount)).intValue();
 	}
 
-	@SuppressWarnings("unchecked")
 	public Share findShareInDay(String companyCode, StockOfDay stockOfDay) {
 		List<Share> shares = stockOfDay.getStock();
 		Share foundShare = new Share();

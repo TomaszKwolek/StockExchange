@@ -8,8 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ma.glasnost.orika.MapperFacade;
+import stockexchange.exceptions.WrongParameterException;
+import stockexchange.helper.ParameterValidator;
 import stockexchange.model.entity.CashPortfolioEntity;
 import stockexchange.model.to.CashPortfolioTo;
+import stockexchange.parameters.Parameters;
 import stockexchange.player.BankAuthentication;
 import stockexchange.repository.CashPortfolioRepository;
 
@@ -20,9 +23,12 @@ public class BankImpl implements Bank{
 	private CashPortfolioRepository cashPortfolioRepository;
 	@Autowired
 	private MapperFacade mapper;
+	@Autowired
+	private Parameters param;
+	@Autowired
+	private ParameterValidator parameterValidator;
 	
 	private final static int FIRST_ITEM_INDEX=0;
-	private final static String CURRENCY_CODE_PLN="PLN";
 	private final static String DIGITAL_SIGN="sign";
 	
 
@@ -32,9 +38,10 @@ public class BankImpl implements Bank{
 	}
 
 	@Override
-	public ConfirmationFromBank withdrawCash(BankAuthentication authentication, BigDecimal amount, String currencyCode) {
+	public ConfirmationFromBank withdrawCash(BankAuthentication authentication, BigDecimal amount, String currencyCode) throws WrongParameterException{
+		checkParameters();
 	    updateCashPortfolio(authentication.getPesel(), amount, currencyCode);
-		return new ConfirmationFromBank(DIGITAL_SIGN, CURRENCY_CODE_PLN, amount);
+		return new ConfirmationFromBank(DIGITAL_SIGN, param.getCurrencyCode(), amount);
 	}
 
 	@Override
@@ -61,6 +68,12 @@ public class BankImpl implements Bank{
 		CashPortfolioTo cashPortfolioTo = mapper.map(cashPortfolioRepository.findCashPortfolio(playerPesel, currencyCode).get(0), CashPortfolioTo.class);
 		cashPortfolioTo.setAmount(newAmount);
 		cashPortfolioRepository.save(mapper.map(cashPortfolioTo, CashPortfolioEntity.class));
+	}
+	
+	private void checkParameters() {
+		if (!parameterValidator.isStringCorrect(param.getCurrencyCode())) {
+			throw new WrongParameterException("Input parameter are not correct!");
+		}
 	}
 
 }

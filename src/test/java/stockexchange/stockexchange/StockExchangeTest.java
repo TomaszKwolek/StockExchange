@@ -22,23 +22,21 @@ import stockexchange.repository.StockExchangeRepository;
 import stockexchange.stockexchange.StockExchange;
 import stockexchange.stockexchange.StockOfDay;
 
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "stockexchange-context.xml")
 public class StockExchangeTest {
 
-
 	@Autowired
 	private StockExchange stockExchange;
-	
+
 	@Test
 	@Sql(scripts = "import.sql")
 	public void testShoulReturnFiveStocksOfDaysForFiveDays() throws ParseException {
 		// given
 		DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
-		Date fromDate = dateFormat.parse("20130102"); 
-		Date toDate = dateFormat.parse("20131102"); 
-		//when
+		Date fromDate = dateFormat.parse("20130102");
+		Date toDate = dateFormat.parse("20131102");
+		// when
 		List<StockOfDay> stockOfDays = stockExchange.getStockOfDays(fromDate, toDate);
 		// then
 		assertEquals(stockOfDays.size(), 5);
@@ -47,15 +45,15 @@ public class StockExchangeTest {
 		assertEquals(stockOfDays.get(4).getDate(), toDate);
 		assertEquals(stockOfDays.get(4).getStock().size(), 3);
 	}
-	
+
 	@Test
 	@Sql(scripts = "import.sql")
 	public void testShoulReturnFiveStocksOfDaysForFiveDaysForCompany() throws ParseException {
 		// given
 		DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
-		Date fromDate = dateFormat.parse("20130102"); 
-		Date toDate = dateFormat.parse("20131102"); 
-		//when
+		Date fromDate = dateFormat.parse("20130102");
+		Date toDate = dateFormat.parse("20131102");
+		// when
 		List<StockOfDay> stockOfDays = stockExchange.getStockOfDaysForCompany("PZU", fromDate, toDate);
 		// then
 		assertEquals(stockOfDays.size(), 5);
@@ -64,5 +62,28 @@ public class StockExchangeTest {
 		assertEquals(stockOfDays.get(4).getDate(), toDate);
 		assertEquals(stockOfDays.get(4).getStock().size(), 1);
 	}
-	
+
+	@Test
+	@Sql(scripts = "import.sql")
+	public void testShoulReturnFirstDate() throws ParseException {
+		// given
+		DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
+		Date firstDate = dateFormat.parse("20130102");
+		// when
+		// then
+		assertEquals(firstDate, stockExchange.getFirstDateOnSE());
+
+	}
+
+	@Test
+	@Sql(scripts = "import.sql")
+	public void testShoulReturnLastDate() throws ParseException  {
+		// given
+		DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
+		Date lastDate = dateFormat.parse("20131102");
+		// when
+		// then
+		assertEquals(lastDate, stockExchange.getLastDateOnSE());
+	}
+
 }

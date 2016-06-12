@@ -63,13 +63,13 @@ public class BrokerageImpl implements Brokerage {
 	}
 
 	@Override
-	public void confirmBuy(BrokerageAuthentication authentication, List<Offer> ListOfOffers, ConfirmationFromBank payConf) {
+	public void confirmBuy(BrokerageAuthentication authentication, List<Offer> offers, ConfirmationFromBank payConf) {
 	List<StockPortfolioTo> stockPortfolios = mapper.mapAsList(brokerageRepository.findStockPortfolio(authentication.getPesel()), StockPortfolioTo.class);
-		updateStockPortfolios(prepareNewStockPortfolio(authentication, stockPortfolios, ListOfOffers));
+		updateStockPortfolios(prepareNewStockPortfolio(authentication, stockPortfolios, offers));
 	}
 
 	@Override
-	public void confirmSell(BrokerageAuthentication authentication, List<Offer> ListOfOffers) {
+	public void confirmSell(BrokerageAuthentication authentication, List<Offer> offers) {
 		// TODO Auto-generated method stub
 	}
 
