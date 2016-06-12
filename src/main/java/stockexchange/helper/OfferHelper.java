@@ -4,10 +4,10 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import stockexchange.exceptions.WrongParameterException;
+import stockexchange.parameters.Parameters;
 import stockexchange.stockexchange.Share;
 import stockexchange.stockexchange.StockOfDay;
 
@@ -16,15 +16,14 @@ public class OfferHelper {
 
 	@Autowired
 	private ParameterValidator paramValidator;
+	@Autowired
+	private Parameters param;
 
-	@Value(value = "#{simulationProperties['stockPriceFactor']}")
-	private String stockPriceFactor;
-	@Value(value = "#{simulationProperties['stockAvailibityFactor']}")
-	private String stockAvailibityFactor;
 	private final static String ONE_HUNDRET_PERCENT = "1.0";
 
 	public BigDecimal calculateMaxUnitPriceToBuy(Share share) throws WrongParameterException {
 		BigDecimal maxPriceFaktor = new BigDecimal(0);
+		String stockPriceFactor = param.getStockPriceFactor();
 		checkParameter(stockPriceFactor);
 		try {
 			maxPriceFaktor = new BigDecimal(Double.parseDouble(ONE_HUNDRET_PERCENT)
@@ -37,6 +36,7 @@ public class OfferHelper {
 
 	public BigDecimal calculateMaxUnitPriceToSell(Share share) throws WrongParameterException {
 		BigDecimal maxPriceFaktor = new BigDecimal(0);
+		String stockPriceFactor = param.getStockPriceFactor();
 		checkParameter(stockPriceFactor);
 		try {
 			maxPriceFaktor = new BigDecimal(Double.parseDouble(ONE_HUNDRET_PERCENT)
@@ -49,6 +49,7 @@ public class OfferHelper {
 
 	public Integer calculateSharesAvailibity(Integer preferedAmount) throws WrongParameterException {
 		BigDecimal availibityFactor = new BigDecimal(0);
+		String stockAvailibityFactor = param.getStockAvailibityFactor();
 		checkParameter(stockAvailibityFactor);
 		try {
 			availibityFactor = new BigDecimal(Double.parseDouble(ONE_HUNDRET_PERCENT)

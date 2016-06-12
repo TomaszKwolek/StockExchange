@@ -26,7 +26,7 @@ public class SimulationGameImpl implements SimulationGame {
 	@Autowired
 	private DataWriter dataWriter;
 	@Autowired
-	private Parameters simParam;
+	private Parameters param;
 	@Autowired
 	private DateParser dateParser;
 	@Autowired
@@ -38,18 +38,18 @@ public class SimulationGameImpl implements SimulationGame {
 	@Override
 	public void executeSimulation() {
 		try {
-			Date startDate = dateParser.stringToDate(simParam.getStartDate());
-			Date stopDate = dateParser.stringToDate(simParam.getStopDate());
+			Date startDate = dateParser.stringToDate(param.getStartDate());
+			Date stopDate = dateParser.stringToDate(param.getStopDate());
 			Date currentDate = startDate;
 			int stopDateCompareResult = COMPARATOR_FIRST_LOWER;
 
 			dataWriter.saveAllIntoDB();
 			updateStockExchangeCalendar();
 			validateDateParameters();
-			while (stopDateCompareResult < 0) {
+			while (stopDateCompareResult <= 0) {
 				executeSimulationForSingleDay(currentDate);
-				stopDateCompareResult = currentDate.compareTo(stopDate);
 				currentDate = calendar.getNextWorkingDay(currentDate);
+				stopDateCompareResult = currentDate.compareTo(stopDate);
 			}
 		} catch (IOException e) {
 			log4j.log(Level.forName("NOTICE", 150), "IOException: Input data cannot be loaded!");
@@ -71,8 +71,8 @@ public class SimulationGameImpl implements SimulationGame {
 	}
 
 	private void validateDateParameters() throws ParseException, WrongParameterException {
-		Date startDate = dateParser.stringToDate(simParam.getStartDate());
-		Date stopDate = dateParser.stringToDate(simParam.getStopDate());
+		Date startDate = dateParser.stringToDate(param.getStartDate());
+		Date stopDate = dateParser.stringToDate(param.getStopDate());
 		if (!areDateParametersCorrect(startDate, stopDate)) {
 			throw new WrongParameterException("Date parameter are not correct!");
 		}

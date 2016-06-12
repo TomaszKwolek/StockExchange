@@ -21,6 +21,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import stockexchange.bank.CashBalance;
 import stockexchange.brokerage.Offer;
+import stockexchange.exceptions.WrongParameterException;
 import stockexchange.model.entity.StockPriceEntity;
 import stockexchange.repository.StockExchangeRepository;
 import stockexchange.stockexchange.Share;
@@ -39,7 +40,7 @@ public class BasicStrategyImplTest {
 	
 	@Test
 	@Sql(scripts = "import.sql")
-	public void testShoulReturnSixRecommendations() throws ParseException {
+	public void testShoulReturnSixRecommendations() throws ParseException, WrongParameterException {
 		// given
 		DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
 		Date date = dateFormat.parse("20130102");

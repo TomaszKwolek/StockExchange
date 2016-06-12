@@ -18,7 +18,7 @@ public class StockOfDay {
 		this.date = date;
 	}
 	
-	public StockOfDay(Date date, List stock) {
+	public StockOfDay(Date date, List<Share> stock) {
 		super();
 		this.date = date;
 		this.stock = stock;
@@ -32,11 +32,11 @@ public class StockOfDay {
 		this.date = date;
 	}
 
-	public List getStock() {
+	public List<Share> getStock() {
 		return stock;
 	}
 
-	public void setStock(List stock) {
+	public void setStock(List<Share> stock) {
 		this.stock = stock;
 	}
 	

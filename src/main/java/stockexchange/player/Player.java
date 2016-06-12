@@ -7,7 +7,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import stockexchange.bank.Bank;
@@ -18,6 +17,7 @@ import stockexchange.brokerage.Offer;
 import stockexchange.brokerage.ShareBalance;
 import stockexchange.exceptions.WrongParameterException;
 import stockexchange.helper.ParameterValidator;
+import stockexchange.parameters.Parameters;
 import stockexchange.strategy.Strategy;
 
 @Service
@@ -31,22 +31,13 @@ public class Player {
 	private Bank bank;
 	@Autowired
 	private ParameterValidator parameterValidator;
-
-	@Value(value = "#{simulationProperties['playerPesel']}")
-	private String playerPesel;
-	@Value(value = "#{simulationProperties['playerId']}")
-	private String playerId;
-	@Value(value = "#{simulationProperties['strategy']}")
-	private String strategy;
-	@Value(value = "#{simulationProperties['currencyCode']}")
-	private String currencyCode;
-	@Value(value = "#{simulationProperties['commissionFactor']}")
-	private String commissionFactor;
-	@Value(value = "#{simulationProperties['minCommission']}")
-	private String minCommission;
+	@Autowired
+	private Parameters param;
 
 	public void executeBuyStrategy(Date date) throws WrongParameterException {
-		int player_id = Integer.parseInt(playerId);
+		int player_id = Integer.parseInt(param.getPlayerId());
+		String playerPesel = param.getPlayerPesel();
+		String currencyCode = param.getCurrencyCode();
 		BankAuthentication bankAuthentiction = new BankAuthentication(playerPesel, "", "", player_id);
 		BrokerageAuthentication brokerageAuthentiction = new BrokerageAuthentication(playerPesel, "", "", player_id);
 
@@ -54,7 +45,7 @@ public class Player {
 
 		List<CashBalance> cashBalances = bank.getCashBalances(bankAuthentiction, currencyCode);
 		List<ShareBalance> shareBalances = brokerage.getSharesBalances(brokerageAuthentiction);
-		List<Offer> recommendationsToBuy = beanFactory.getBean(strategy, Strategy.class).prepareRecommendationsToBuy(cashBalances, date);
+		List<Offer> recommendationsToBuy = beanFactory.getBean(param.getStrategy(), Strategy.class).prepareRecommendationsToBuy(cashBalances, date);
 		List<Offer> offersToBuy = brokerage.prepareListOfOffersToBuy(prepareOfferInquiry(recommendationsToBuy), date);
 		List<Offer> sharesToBuy = makeDecisonToBuy(recommendationsToBuy, offersToBuy);
 
@@ -118,8 +109,8 @@ public class Player {
 	}
 
 	private BigDecimal calculateCommisionForBrokerage(List<Offer> sharesToBuy) {
-		BigDecimal commFactor = new BigDecimal(commissionFactor);
-		BigDecimal minComm = new BigDecimal(minCommission);
+		BigDecimal commFactor = new BigDecimal(param.getCommissionFactor());
+		BigDecimal minComm = new BigDecimal(param.getMinCommission());
 		BigDecimal commission = new BigDecimal(0);
 		for (Offer share : sharesToBuy) {
 			BigDecimal transactionAmount = share.getPrice().multiply(new BigDecimal(share.getAmount()));
@@ -144,10 +135,10 @@ public class Player {
 	}
 
 	private void checkParameter() {
-		if (!parameterValidator.isPesel(playerPesel) || !parameterValidator.isIntegerNumber(playerId)
-				|| !parameterValidator.isStringCorrect(strategy) || !parameterValidator.isStringCorrect(currencyCode)
-				|| !parameterValidator.isNumberWithComma(commissionFactor)
-				|| !parameterValidator.isNumberWithComma(minCommission)) {
+		if (!parameterValidator.isPesel(param.getPlayerPesel()) || !parameterValidator.isIntegerNumber(param.getPlayerId())
+				|| !parameterValidator.isStringCorrect(param.getStrategy()) || !parameterValidator.isStringCorrect(param.getCurrencyCode())
+				|| !parameterValidator.isNumberWithComma(param.getCommissionFactor())
+				|| !parameterValidator.isNumberWithComma(param.getMinCommission())) {
 			throw new WrongParameterException("Input parameter are not correct!");
 		}
 

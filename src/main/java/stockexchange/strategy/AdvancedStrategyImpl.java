@@ -14,6 +14,7 @@ import stockexchange.brokerage.ShareBalance;
 @Component("advancedStrategy")
 public class AdvancedStrategyImpl implements Strategy {
 
+	@SuppressWarnings("unused")
 	@Autowired
 	private BrokerageImpl brokerage;
 	

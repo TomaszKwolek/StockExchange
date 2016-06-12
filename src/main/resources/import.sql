@@ -11,6 +11,7 @@ INSERT INTO player (id, pesel, first_name, last_name) VALUES (1, '86031701659', 
 
 INSERT INTO cash_portfolio (id, player_id, currency_code, amount) VALUE (1, 1, 'PLN', 10000);
 
+INSERT INTO stock_portfolio (id, player_id, currency_code, amount) VALUE (1, 1, 'PLN', 10000);
 
 
 

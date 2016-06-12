@@ -12,28 +12,31 @@ import stockexchange.model.to.StockPriceTo;
 import stockexchange.repository.StockExchangeRepository;
 
 @Service
-public class StockExchangeImpl implements StockExchange{
+public class StockExchangeImpl implements StockExchange {
 
 	@Autowired
 	private StockExchangeRepository stockExchangeRepository;
 	@Autowired
 	private MapperFacade mapper;
-	
+
 	@Override
 	public List<StockOfDay> getStockOfDays(Date fromDate, Date toDate) {
-		List<StockPriceTo> stockPriceTos = mapper.mapAsList(stockExchangeRepository.findStockOfDays(fromDate, toDate), StockPriceTo.class);
+		List<StockPriceTo> stockPriceTos = mapper.mapAsList(stockExchangeRepository.findStockOfDays(fromDate, toDate),
+				StockPriceTo.class);
 		List<StockOfDay> stockOfDays = new ArrayList<>();
 		for (StockPriceTo stockPriceTo : stockPriceTos) {
-			stockOfDays=addToStockOfDays(stockOfDays, stockPriceTo);
+			stockOfDays = addToStockOfDays(stockOfDays, stockPriceTo);
 		}
 		return stockOfDays;
 	}
-	
+
+	@Override
 	public List<StockOfDay> getStockOfDaysForCompany(String companyCode, Date fromDate, Date toDate) {
-		List<StockPriceTo> stockPriceTos = mapper.mapAsList(stockExchangeRepository.findStockOfDaysForCompany(companyCode, fromDate, toDate), StockPriceTo.class);
+		List<StockPriceTo> stockPriceTos = mapper.mapAsList(
+				stockExchangeRepository.findStockOfDaysForCompany(companyCode, fromDate, toDate), StockPriceTo.class);
 		List<StockOfDay> stockOfDays = new ArrayList<>();
 		for (StockPriceTo stockPriceTo : stockPriceTos) {
-			stockOfDays=addToStockOfDays(stockOfDays, stockPriceTo);
+			stockOfDays = addToStockOfDays(stockOfDays, stockPriceTo);
 		}
 		return stockOfDays;
 	}
@@ -47,22 +50,22 @@ public class StockExchangeImpl implements StockExchange{
 	public Date getLastDateOnSE() {
 		return stockExchangeRepository.findLastDateOnSE().get(0).getDate();
 	}
-	
+
 	private List<StockOfDay> addToStockOfDays(List<StockOfDay> stockOfDays, StockPriceTo stockPriceTo) {
 		Share newShare = new Share(stockPriceTo.getCompanyCode(), stockPriceTo.getPrice());
 		boolean shareAdded = false;
-		if(stockOfDays.size()==0){
+		if (stockOfDays.size() == 0) {
 			addStockForNewDay(stockOfDays, stockPriceTo, newShare);
 			shareAdded = true;
 		}
-		for (int i=0; i < stockOfDays.size(); i++) {
-			if(stockPriceTo.getDate().equals(stockOfDays.get(i).getDate()) && !shareAdded){
+		for (int i = 0; i < stockOfDays.size(); i++) {
+			if (stockPriceTo.getDate().equals(stockOfDays.get(i).getDate()) && !shareAdded) {
 				stockOfDays.get(i).addShareToStock(newShare);
-				i=stockOfDays.size();
+				i = stockOfDays.size();
 				shareAdded = true;
 			}
 		}
-		if(!shareAdded){
+		if (!shareAdded) {
 			addStockForNewDay(stockOfDays, stockPriceTo, newShare);
 		}
 		return stockOfDays;
