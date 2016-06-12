@@ -1,7 +1,6 @@
 package stockexchange.brokerage;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.fail;
 
 import java.math.BigDecimal;
@@ -20,11 +19,7 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import stockexchange.bank.ConfirmationFromBank;
-import stockexchange.model.entity.StockPriceEntity;
-import stockexchange.player.BankAuthentication;
 import stockexchange.player.BrokerageAuthentication;
-import stockexchange.repository.StockExchangeRepository;
-import stockexchange.stockexchange.StockExchange;
 import stockexchange.stockexchange.StockOfDay;
 
 
