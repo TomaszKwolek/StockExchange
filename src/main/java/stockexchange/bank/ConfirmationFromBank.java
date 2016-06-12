@@ -11,7 +11,6 @@ public class ConfirmationFromBank {
 	
 	public ConfirmationFromBank() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public ConfirmationFromBank(String difitalSign, String currencyCode, BigDecimal amount) {

@@ -2,8 +2,6 @@ package stockexchange.model.to;
 
 import java.math.BigDecimal;
 
-import stockexchange.model.entity.PlayerEntity;
-
 
 
 public class CashPortfolioTo {

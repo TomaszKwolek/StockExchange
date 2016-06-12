@@ -1,17 +1,10 @@
 package stockexchange.player;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -23,6 +16,8 @@ import stockexchange.bank.ConfirmationFromBank;
 import stockexchange.brokerage.Brokerage;
 import stockexchange.brokerage.Offer;
 import stockexchange.brokerage.ShareBalance;
+import stockexchange.exceptions.WrongParameterException;
+import stockexchange.helper.ParameterValidator;
 import stockexchange.strategy.Strategy;
 
 @Service
@@ -34,93 +29,128 @@ public class Player {
 	private Brokerage brokerage;
 	@Autowired
 	private Bank bank;
-	
+	@Autowired
+	private ParameterValidator parameterValidator;
+
 	@Value(value = "#{simulationProperties['playerPesel']}")
 	private String playerPesel;
+	@Value(value = "#{simulationProperties['playerId']}")
+	private String playerId;
 	@Value(value = "#{simulationProperties['strategy']}")
 	private String strategy;
-	private final BigDecimal commisionFactor = new BigDecimal(0.005); 
-	private final BigDecimal minCommision = new BigDecimal(5); 
-	
-	private static final Logger log4j = LogManager.getLogger(Player.class.getName());
+	@Value(value = "#{simulationProperties['currencyCode']}")
+	private String currencyCode;
+	@Value(value = "#{simulationProperties['commissionFactor']}")
+	private String commissionFactor;
+	@Value(value = "#{simulationProperties['minCommission']}")
+	private String minCommission;
 
-	public void executeBuyStrategy(Date date) { 
-		List<CashBalance>  cashBalance = bank.getCashBalance(playerPesel, new BankAuthentication());
-		List<ShareBalance>  shareBalance = brokerage.getSharesBalance(playerPesel, new BrokerageAuthentication());
-		List<Offer> recommendationsToBuy = beanFactory.getBean(strategy, Strategy.class).prepareRecommendationsToBuy(cashBalance, date);	
+	public void executeBuyStrategy(Date date) throws WrongParameterException {
+		int player_id = Integer.parseInt(playerId);
+		BankAuthentication bankAuthentiction = new BankAuthentication(playerPesel, "", "", player_id);
+		BrokerageAuthentication brokerageAuthentiction = new BrokerageAuthentication(playerPesel, "", "", player_id);
+
+		checkParameter();
+
+		List<CashBalance> cashBalances = bank.getCashBalances(bankAuthentiction, currencyCode);
+		List<ShareBalance> shareBalances = brokerage.getSharesBalances(brokerageAuthentiction);
+		List<Offer> recommendationsToBuy = beanFactory.getBean(strategy, Strategy.class).prepareRecommendationsToBuy(cashBalances, date);
 		List<Offer> offersToBuy = brokerage.prepareListOfOffersToBuy(prepareOfferInquiry(recommendationsToBuy), date);
 		List<Offer> sharesToBuy = makeDecisonToBuy(recommendationsToBuy, offersToBuy);
-		PlayerLogPrinter.printCashBalance(cashBalance, date);
-		PlayerLogPrinter.printShareBalance(shareBalance, date);
+
+		PlayerLogPrinter.printCashBalance(cashBalances, date);
+		PlayerLogPrinter.printShareBalance(shareBalances, date);
 		PlayerLogPrinter.printOffers("Recommendation to buy ", recommendationsToBuy, date);
 		PlayerLogPrinter.printOffers("Offer to buy ", offersToBuy, date);
 		PlayerLogPrinter.printOffers("Will be purchased ", sharesToBuy, date);
+
 		BigDecimal commision = calculateCommisionForBrokerage(sharesToBuy);
 		BigDecimal costOfShares = calculateCostOfShares(sharesToBuy);
 		BigDecimal toPay = costOfShares.add(commision);
-		PlayerLogPrinter.printCosts(costOfShares, commision, toPay, date);
-		ConfirmationFromBank bankConfirmation = bank.withdrawCash(playerPesel, new BankAuthentication(), toPay);
-		cashBalance = bank.getCashBalance(playerPesel, new BankAuthentication());
-		PlayerLogPrinter.printCashBalance(cashBalance, date);
-		PlayerLogPrinter.printShareBalance(shareBalance, date);
-	 }
-	
-	public void executeSellStartegy(Date date) { 
-		// TODO Auto-generated method
-	 } 
 
-	private List<Offer> makeDecisonToBuy(List<Offer> recommendations, List<Offer> offers) {
-		List<Offer> sharesToBuy = new ArrayList<>(); 
-		for(Offer recommendation: recommendations){
-			for(Offer offer: offers){
-				if(recommendation.getCompanyCode().equals(offer.getCompanyCode())){
-					int compareResult = recommendation.getPrice().compareTo(offer.getPrice());
-					if(compareResult >= 1){
-						sharesToBuy.add(offer);
-					}
-				}
+		PlayerLogPrinter.printCosts(costOfShares, commision, toPay, date);
+
+		ConfirmationFromBank bankConfirmation = bank.withdrawCash(bankAuthentiction, toPay, currencyCode);
+		brokerage.confirmBuy(brokerageAuthentiction, sharesToBuy, bankConfirmation);
+
+		cashBalances = bank.getCashBalances(bankAuthentiction, currencyCode);
+		shareBalances = brokerage.getSharesBalances(brokerageAuthentiction);
+
+		PlayerLogPrinter.printCashBalance(cashBalances, date);
+		PlayerLogPrinter.printShareBalance(shareBalances, date);
+	}
+
+	public void executeSellStartegy(Date date) {
+		// TODO Auto-generated method
+	}
+
+	private void makeSimpleDecision(List<Offer> sharesToBuy, Offer recommendation, Offer offer) {
+		if (recommendation.getCompanyCode().equals(offer.getCompanyCode())) {
+			int compareResult = recommendation.getPrice().compareTo(offer.getPrice());
+			if (compareResult >= 1 && offer.getAmount() > 0) {
+				sharesToBuy.add(offer);
 			}
 		}
-		return sharesToBuy; 
-	 }
+	}
 	
-	private List<Offer> makeDecisionToSell(List<Offer> recommendations, List<Offer> offers) { 
+	private List<Offer> makeDecisonToBuy(List<Offer> recommendations, List<Offer> offers) {
+		List<Offer> sharesToBuy = new ArrayList<>();
+		for (Offer recommendation : recommendations) {
+			for (Offer offer : offers) {
+				makeSimpleDecision(sharesToBuy, recommendation, offer);
+			}
+		}
+		return sharesToBuy;
+	}
+
+	@SuppressWarnings("unused")
+	private List<Offer> makeDecisionToSell(List<Offer> recommendations, List<Offer> offers) {
 		// TODO Auto-generated method
 		return null;
-	 }
-	
-	private List<Offer> prepareOfferInquiry(List<Offer> recommendations){
+	}
+
+	private List<Offer> prepareOfferInquiry(List<Offer> recommendations) {
 		List<Offer> offerInquiry = new ArrayList<>();
-		for(Offer recommendation: recommendations){
+		for (Offer recommendation : recommendations) {
 			offerInquiry.add(new Offer(recommendation.getCompanyCode(), recommendation.getAmount(), new BigDecimal(0)));
 		}
 		return offerInquiry;
 	}
-	
-	
-	private BigDecimal calculateCommisionForBrokerage(List<Offer> sharesToBuy){
-		BigDecimal commision = new BigDecimal(0);
-		for(Offer share: sharesToBuy){
+
+	private BigDecimal calculateCommisionForBrokerage(List<Offer> sharesToBuy) {
+		BigDecimal commFactor = new BigDecimal(commissionFactor);
+		BigDecimal minComm = new BigDecimal(minCommission);
+		BigDecimal commission = new BigDecimal(0);
+		for (Offer share : sharesToBuy) {
 			BigDecimal transactionAmount = share.getPrice().multiply(new BigDecimal(share.getAmount()));
-			BigDecimal regularCommision = transactionAmount.multiply(commisionFactor);
-			if(regularCommision.compareTo(minCommision) == -1){
-				commision=commision.add(minCommision);
-			}
-			else{
-				commision=commision.add(regularCommision);
+			BigDecimal regularCommision = transactionAmount.multiply(commFactor);
+			if (regularCommision.compareTo(minComm) == -1) {
+				commission = commission.add(minComm);
+			} else {
+				commission = commission.add(regularCommision);
 			}
 		}
-		return  commision;
+		return commission;
 	}
-	
-	private BigDecimal calculateCostOfShares(List<Offer> sharesToBuy){
+
+	private BigDecimal calculateCostOfShares(List<Offer> sharesToBuy) {
 		BigDecimal cost = new BigDecimal(0);
-		for(Offer share: sharesToBuy){
+		for (Offer share : sharesToBuy) {
 			BigDecimal transactionAmount = share.getPrice().multiply(new BigDecimal(share.getAmount()));
-			cost=cost.add(transactionAmount);
+			cost = cost.add(transactionAmount);
 		}
-		cost=cost.add(calculateCommisionForBrokerage(sharesToBuy));
-		return  cost;
+		cost = cost.add(calculateCommisionForBrokerage(sharesToBuy));
+		return cost;
 	}
-	
+
+	private void checkParameter() {
+		if (!parameterValidator.isPesel(playerPesel) || !parameterValidator.isIntegerNumber(playerId)
+				|| !parameterValidator.isStringCorrect(strategy) || !parameterValidator.isStringCorrect(currencyCode)
+				|| !parameterValidator.isNumberWithComma(commissionFactor)
+				|| !parameterValidator.isNumberWithComma(minCommission)) {
+			throw new WrongParameterException("Input parameter are not correct!");
+		}
+
+	}
+
 }

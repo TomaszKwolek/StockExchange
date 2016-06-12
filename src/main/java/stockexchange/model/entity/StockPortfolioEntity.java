@@ -21,13 +21,28 @@ public class StockPortfolioEntity implements Serializable {
 	@Column(name="company_code")
 	private String companyCode;
 
-	private int volume;
+	private Integer amount;
 
 	//bi-directional many-to-one association to PlayerEntity
 	@ManyToOne
 	private PlayerEntity player;
 
 	public StockPortfolioEntity() {
+	}
+	
+	public StockPortfolioEntity(String companyCode, Integer amount, PlayerEntity player) {
+		super();
+		this.companyCode = companyCode;
+		this.amount = amount;
+		this.player = player;
+	}
+
+	public StockPortfolioEntity(int id, String companyCode, Integer amount, PlayerEntity player) {
+		super();
+		this.id = id;
+		this.companyCode = companyCode;
+		this.amount = amount;
+		this.player = player;
 	}
 
 	public int getId() {
@@ -46,12 +61,12 @@ public class StockPortfolioEntity implements Serializable {
 		this.companyCode = companyCode;
 	}
 
-	public int getVolume() {
-		return this.volume;
+	public Integer getAmount() {
+		return this.amount;
 	}
 
-	public void setVolume(int volume) {
-		this.volume = volume;
+	public void setAmount(Integer amount) {
+		this.amount = amount;
 	}
 
 	public PlayerEntity getPlayer() {

@@ -69,8 +69,7 @@ public class DataWriterImpl implements DataWriter {
 		if(validator.isLineCorrect(line)){
 		String companyCode=line[compCodeIndex];
 		Date data = dateParser.stringToDate(line[dateStringIndex]);
-		BigDecimal price = new BigDecimal(line[priceStringIndex]);
-		
+		BigDecimal price = new BigDecimal(line[priceStringIndex]);		
 		StockPriceEntity spe = mapper.map(new StockPriceTo(id, companyCode, data, price), StockPriceEntity.class);
 		stockUpdaterRepository.save(spe);
 		}

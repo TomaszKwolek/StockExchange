@@ -15,6 +15,7 @@ import stockexchange.brokerage.Brokerage;
 import stockexchange.brokerage.Offer;
 import stockexchange.brokerage.ShareBalance;
 import stockexchange.exceptions.NoStocksDataForDayException;
+import stockexchange.exceptions.WrongParameterException;
 import stockexchange.helper.OfferHelper;
 import stockexchange.stockexchange.Share;
 import stockexchange.stockexchange.StockOfDay;
@@ -27,14 +28,14 @@ public class BasicStrategyImpl implements Strategy {
 	@Autowired
 	private OfferHelper offerHelper;
 	
-	private final int FIRST_ITEM_INDEX=0;
-	private final String currencyCode = "PLN";
-	private final BigDecimal HUNDRET_PERCENT=new BigDecimal(100);
-	private final int NUMBER_OF_RECOM = 4;
-	private final BigDecimal MAX_PERCENT_OF_CASH_FOR_SINGLE_TRANSACTION=new BigDecimal(50/NUMBER_OF_RECOM);
+	private final static int FIRST_ITEM_INDEX=0;
+	private final static String currencyCode = "PLN";
+	private final static BigDecimal HUNDRET_PERCENT=new BigDecimal(100);
+	private final static int NUMBER_OF_RECOM = 4;
+	private final static BigDecimal MAX_PERCENT_OF_CASH_FOR_SINGLE_TRANSACTION=new BigDecimal(60/NUMBER_OF_RECOM);
 	
 	@Override
-	public List<Offer> prepareRecommendationsToBuy(List<CashBalance> cashBalances, Date date)  throws  NoStocksDataForDayException{
+	public List<Offer> prepareRecommendationsToBuy(List<CashBalance> cashBalances, Date date)  throws  NoStocksDataForDayException, WrongParameterException{
 		CashBalance cashBalance = findCashBalance(currencyCode, cashBalances); 
 		List<Offer> recommendationsToBuy = new ArrayList<>();
 		StockOfDay stockOfDay = brokerage.getStockOfDays(date, date).get(FIRST_ITEM_INDEX);
@@ -81,7 +82,7 @@ public class BasicStrategyImpl implements Strategy {
 		return maxAmount.divide(unitPrice, 2).intValue();
 	}
 
-	private Offer prepareSignleRecommendationToBuy(Share share, CashBalance cashBalance){
+	private Offer prepareSignleRecommendationToBuy(Share share, CashBalance cashBalance) throws WrongParameterException{
 		BigDecimal maxAmountTransatcion = calculateMaxAmountOfSingleTransaction(cashBalance).setScale(2, RoundingMode.HALF_DOWN);
 		BigDecimal tempSharePrice = share.getPrice();
 		BigDecimal tempPrice = offerHelper.calculateMaxUnitPriceToBuy(share);

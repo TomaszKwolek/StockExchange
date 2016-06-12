@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ma.glasnost.orika.MapperFacade;
-import stockexchange.dao.impl.StockExchangeDaoImpl;
 import stockexchange.model.to.StockPriceTo;
 import stockexchange.repository.StockExchangeRepository;
 

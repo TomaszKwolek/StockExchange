@@ -14,6 +14,13 @@ public class StockPriceTo {
 	public StockPriceTo() {
 		super();
 	}
+	
+	public StockPriceTo(String companyCode, Date date, BigDecimal price) {
+		super();
+		this.companyCode = companyCode;
+		this.date = date;
+		this.price = price;
+	}
 
 	public StockPriceTo(int id, String companyCode, Date date, BigDecimal price) {
 		super();

@@ -8,13 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ma.glasnost.orika.MapperFacade;
-import stockexchange.dao.impl.BankDaoImpl;
 import stockexchange.model.entity.CashPortfolioEntity;
-import stockexchange.model.entity.PlayerEntity;
 import stockexchange.model.to.CashPortfolioTo;
-import stockexchange.model.to.PlayerTo;
 import stockexchange.player.BankAuthentication;
-import stockexchange.player.Player;
 import stockexchange.repository.CashPortfolioRepository;
 
 @Service
@@ -26,28 +22,29 @@ public class BankImpl implements Bank{
 	private MapperFacade mapper;
 	
 	private final static int FIRST_ITEM_INDEX=0;
+	private final static String CURRENCY_CODE_PLN="PLN";
+	private final static String DIGITAL_SIGN="sign";
+	
 
 	@Override
-	public List<CashBalance> getCashBalance(String playerPesel, BankAuthentication authentication) {
-		return convertToCashBalance(mapper.mapAsList(cashPortfolioRepository.findCashPortfolio(playerPesel), CashPortfolioTo.class));
+	public List<CashBalance> getCashBalances(BankAuthentication authentication, String currencyCode) {
+		return convertToCashBalance(mapper.mapAsList(cashPortfolioRepository.findCashPortfolio(authentication.getPesel(), currencyCode), CashPortfolioTo.class));
 	}
 
 	@Override
-	public ConfirmationFromBank withdrawCash(String playerPesel, BankAuthentication authentication, BigDecimal amount) {
-	    updateCashPortfolio(playerPesel, amount);
-		return new ConfirmationFromBank("key", "PLN", amount);
+	public ConfirmationFromBank withdrawCash(BankAuthentication authentication, BigDecimal amount, String currencyCode) {
+	    updateCashPortfolio(authentication.getPesel(), amount, currencyCode);
+		return new ConfirmationFromBank(DIGITAL_SIGN, CURRENCY_CODE_PLN, amount);
 	}
 
 	@Override
-	public void topUpAccount(String playerPesel, BankAuthentication authentication, CashBalance cash) {
+	public void topUpAccount(BankAuthentication authentication, CashBalance cash, String currencyCode) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
-	public void changeCurrency(String playerPesel, BankAuthentication authentication, String currencyPairCode, BigDecimal amount) {
+	public void changeCurrency(BankAuthentication authentication, String currencyPairCode, BigDecimal amount) {
 		// TODO Auto-generated method stub
-		
 	}
 	
 	private List<CashBalance> convertToCashBalance(List<CashPortfolioTo> cashPortfolios){
@@ -58,13 +55,12 @@ public class BankImpl implements Bank{
 		return cashBalances;
 	}
 	
-	private void updateCashPortfolio(String playerPesel, BigDecimal amount) {
-		List<CashPortfolioTo> cashportfolios = mapper.mapAsList(cashPortfolioRepository.findCashPortfolio(playerPesel), CashPortfolioTo.class);
-		CashPortfolioTo currentCashPortfolio =  cashportfolios.get(FIRST_ITEM_INDEX);
+	private void updateCashPortfolio(String playerPesel, BigDecimal amount, String currencyCode) {
+		CashPortfolioTo currentCashPortfolio =  mapper.mapAsList(cashPortfolioRepository.findCashPortfolio(playerPesel, currencyCode), CashPortfolioTo.class).get(FIRST_ITEM_INDEX);
 		BigDecimal newAmount = currentCashPortfolio.getAmount().subtract(amount);
-		CashPortfolioTo CashPortfolioTo = mapper.map(cashPortfolioRepository.findCashPortfolio(playerPesel).get(0), CashPortfolioTo.class);
-		CashPortfolioTo.setAmount(newAmount);
-		cashPortfolioRepository.save(mapper.map(CashPortfolioTo, CashPortfolioEntity.class));
+		CashPortfolioTo cashPortfolioTo = mapper.map(cashPortfolioRepository.findCashPortfolio(playerPesel, currencyCode).get(0), CashPortfolioTo.class);
+		cashPortfolioTo.setAmount(newAmount);
+		cashPortfolioRepository.save(mapper.map(cashPortfolioTo, CashPortfolioEntity.class));
 	}
 
 }

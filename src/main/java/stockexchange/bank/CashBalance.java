@@ -9,7 +9,6 @@ public class CashBalance {
 	
 	public CashBalance() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public CashBalance(String currencyCode, BigDecimal cashAmount) {

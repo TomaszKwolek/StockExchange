@@ -10,8 +10,8 @@ import stockexchange.model.entity.CashPortfolioEntity;
 
 public interface CashPortfolioRepository extends JpaRepository<CashPortfolioEntity, Long>{
 	
-	@Query("from CashPortfolioEntity cpe join fetch cpe.player p where p.pesel=?1")
- 	List<CashPortfolioEntity> findCashPortfolio(String playerPesel);
+	@Query("from CashPortfolioEntity cpe join fetch cpe.player p where p.pesel=?1 and currency_code=?2")
+ 	List<CashPortfolioEntity> findCashPortfolio(String playerPesel, String currencyCode);
 	
 	@Query("update CashPortfolioEntity set amount=?2 where id=?1")
 	List<CashPortfolioEntity> updateCashPortfolio(int id, BigDecimal newAmount);

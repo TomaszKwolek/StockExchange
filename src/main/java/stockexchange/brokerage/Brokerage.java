@@ -15,7 +15,7 @@ public interface Brokerage {
 
 	public List<Offer> prepareListOfOffersToSell(List<Offer> sharesToOfferInquiry, Date date);
 	public List<Offer> prepareListOfOffersToBuy(List<Offer> sharesToOfferInquiry, Date date);
-	public List<ShareBalance> getSharesBalance(String playerPesel, BrokerageAuthentication authentication);
+	public List<ShareBalance> getSharesBalances(BrokerageAuthentication authentication);
 	public void confirmBuy(BrokerageAuthentication authentication, List<Offer> ListOfOffers, ConfirmationFromBank payConf);
 	public void confirmSell(BrokerageAuthentication authentication, List<Offer> ListOfOffers);
 	public  List<StockOfDay> getStockOfDays(Date fromDate, Date toDate)  throws  NoStocksDataForDayException;

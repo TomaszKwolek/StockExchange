@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import stockexchange.model.entity.StockPortfolioEntity;
-import stockexchange.model.entity.StockPriceEntity;
 
 @Repository
 public interface BrokerageRepository extends JpaRepository<StockPortfolioEntity, Long>{
